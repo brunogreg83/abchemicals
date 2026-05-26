@@ -65,8 +65,8 @@
       min-height:100vh;
       display:grid;grid-template-columns:55fr 45fr;align-items:center;
       padding:120px 80px 80px;gap:60px;
-      background:#ffffff;
-      position:relative;overflow:hidden;
+      background:transparent;
+      position:relative;overflow:hidden;z-index:1;
     }
     #hero::before{
       content:'';position:absolute;inset:0;pointer-events:none;
@@ -168,7 +168,7 @@
     .section-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;margin-bottom:12px;color:var(--text)}
 
     /* FEATURES */
-    #features{padding:90px 60px;background:var(--white)}
+    #features{padding:90px 60px;background:var(--white);position:relative;z-index:1}
     .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .feature-card{
       background:var(--off-white);padding:34px 26px;border-radius:20px;
@@ -188,7 +188,7 @@
     .feature-desc{font-size:.87rem;color:var(--text-muted);line-height:1.7}
 
     /* PRODUCTS */
-    #produtos{padding:90px 60px;background:linear-gradient(180deg,var(--sky-light),var(--blue-pale))}
+    #produtos{padding:90px 60px;position:relative;z-index:1;background:linear-gradient(180deg,var(--sky-light),var(--blue-pale))}
     .products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
     .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .product-card{
@@ -348,9 +348,69 @@
       .form-row{grid-template-columns:1fr}
       .footer-top{grid-template-columns:1fr}
     }
-  </style>
+  
+    /* GLOBAL BACKGROUND BUBBLES */
+    #bg-bubbles{
+      position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+    }
+    .bg-bubble{
+      position:absolute;border-radius:50%;
+      background:transparent;
+      border:1.5px solid rgba(59,158,255,.13);
+      box-shadow:inset 0 0 40px rgba(59,158,255,.04), 0 0 0 1px rgba(255,255,255,.6);
+      animation:bgFloat linear infinite;
+    }
+    /* inner sheen — simulates light refraction on soap bubble */
+    .bg-bubble::before{
+      content:'';position:absolute;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 28%,
+        rgba(255,255,255,.55) 0%,
+        rgba(255,255,255,.15) 25%,
+        transparent 60%);
+    }
+    /* tiny highlight dot */
+    .bg-bubble::after{
+      content:'';position:absolute;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(255,255,255,.7) 0%,transparent 70%);
+      width:18%;height:18%;top:12%;left:20%;
+    }
+    @keyframes bgFloat{
+      0%  {transform:translateY(0)   scale(1);}
+      33% {transform:translateY(-22px) scale(1.015);}
+      66% {transform:translateY(-10px) scale(.99);}
+      100%{transform:translateY(0)   scale(1);}
+    }
+</style>
 </head>
 <body>
+
+<!-- BACKGROUND BUBBLES -->
+<div id="bg-bubbles" aria-hidden="true">
+  <!-- row 1: large -->
+  <div class="bg-bubble" style="width:320px;height:320px;top:-80px;left:-60px;animation-duration:18s;animation-delay:0s;"><div style="inset:0;position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.55) 0%,rgba(255,255,255,.15) 25%,transparent 60%)"></div></div>
+  <div class="bg-bubble" style="width:200px;height:200px;top:5%;left:30%;animation-duration:22s;animation-delay:-4s;"></div>
+  <div class="bg-bubble" style="width:280px;height:280px;top:-40px;right:10%;animation-duration:20s;animation-delay:-8s;"></div>
+  <div class="bg-bubble" style="width:140px;height:140px;top:18%;right:3%;animation-duration:15s;animation-delay:-2s;"></div>
+
+  <!-- row 2: mid page -->
+  <div class="bg-bubble" style="width:360px;height:360px;top:28%;left:-100px;animation-duration:25s;animation-delay:-6s;"></div>
+  <div class="bg-bubble" style="width:180px;height:180px;top:32%;left:22%;animation-duration:19s;animation-delay:-11s;"></div>
+  <div class="bg-bubble" style="width:240px;height:240px;top:25%;right:18%;animation-duration:23s;animation-delay:-3s;"></div>
+  <div class="bg-bubble" style="width:100px;height:100px;top:42%;right:8%;animation-duration:14s;animation-delay:-9s;"></div>
+
+  <!-- row 3: lower mid -->
+  <div class="bg-bubble" style="width:300px;height:300px;top:52%;left:12%;animation-duration:21s;animation-delay:-5s;"></div>
+  <div class="bg-bubble" style="width:160px;height:160px;top:58%;left:48%;animation-duration:17s;animation-delay:-13s;"></div>
+  <div class="bg-bubble" style="width:220px;height:220px;top:55%;right:-40px;animation-duration:26s;animation-delay:-7s;"></div>
+
+  <!-- row 4: bottom -->
+  <div class="bg-bubble" style="width:380px;height:380px;top:75%;left:-80px;animation-duration:28s;animation-delay:-10s;"></div>
+  <div class="bg-bubble" style="width:190px;height:190px;top:78%;left:35%;animation-duration:16s;animation-delay:-1s;"></div>
+  <div class="bg-bubble" style="width:260px;height:260px;top:80%;right:5%;animation-duration:24s;animation-delay:-15s;"></div>
+  <div class="bg-bubble" style="width:120px;height:120px;top:90%;left:60%;animation-duration:13s;animation-delay:-4s;"></div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -369,11 +429,10 @@
   <div class="hero-content">
     <div class="hero-badge">Londrina &amp; Região Norte do Paraná</div>
     <h1 class="hero-title">
-      Produtos para<br>
-      <span>limpeza</span>
-      <em>profissional</em>
+      Soluções em
+      <em>limpeza profissional</em>
     </h1>
-    <p class="hero-desc">Distribuidora especializada em produtos químicos e insumos para empresas que valorizam higiene, qualidade e custo-benefício real.</p>
+    <p class="hero-desc">Fornecemos soluções em limpeza profissional para empresas que exigem qualidade, agilidade no atendimento e o melhor custo-benefício para o dia a dia operacional.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Orçamento</button>
       <button class="btn-outline" onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">Ver Produtos</button>
