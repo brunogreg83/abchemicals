@@ -131,17 +131,31 @@
       position:relative;display:flex;align-items:center;justify-content:center;width:100%;
     }
     .hero-logo-wrap::before{
-      content:'';position:absolute;
-      width:80%;height:80%;border-radius:50%;
-      background:radial-gradient(circle,rgba(26,79,160,.06) 0%,transparent 70%);
-      pointer-events:none;
+      content:'';display:none;
     }
     .hero-logo-wrap img{
       width:100%;max-width:440px;height:auto;
       object-fit:contain;
-      filter:drop-shadow(0 16px 48px rgba(26,79,160,.14));
+      filter:drop-shadow(0 16px 48px rgba(26,79,160,.10));
       position:relative;z-index:1;
+      mix-blend-mode:multiply;
     }
+    .btn-primary{
+      background:var(--blue);color:#fff;border:none;
+      padding:15px 34px;font-family:'Montserrat',sans-serif;
+      font-size:.9rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+      cursor:pointer;border-radius:50px;
+      box-shadow:0 4px 20px rgba(26,79,160,.35);
+      transition:background .2s,transform .15s,box-shadow .2s;
+    }
+    .btn-primary:hover{background:var(--blue-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,79,160,.4)}
+    .btn-outline{
+      background:transparent;color:var(--blue);border:2px solid var(--blue);
+      padding:13px 32px;font-family:'Montserrat',sans-serif;
+      font-size:.9rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+      cursor:pointer;border-radius:50px;transition:all .2s;
+    }
+    .btn-outline:hover{background:var(--blue-pale)}
     /* WAVE */
     .wave svg{display:block;width:100%}
 
@@ -369,7 +383,7 @@
         <div class="hero-trust-icon">
           <svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
         </div>
-        <div class="hero-trust-text">500+ Produtos<span>em estoque</span></div>
+        <div class="hero-trust-text">Estoque Local<span>Londrina e região</span></div>
       </div>
       <div class="hero-trust-item">
         <div class="hero-trust-icon">
