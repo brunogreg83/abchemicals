@@ -80,11 +80,11 @@
     .hero-badge::before{content:'✦';color:var(--sky);font-size:.6rem}
     .hero-title{
       font-family:'Montserrat',sans-serif;font-weight:900;
-      font-size:clamp(3rem,5.5vw,5.8rem);line-height:1;letter-spacing:-1px;
+      font-size:clamp(3rem,5.5vw,5.8rem);line-height:1.05;letter-spacing:-1px;
       color:var(--text);animation:fadeUp .6s .1s ease both;
     }
     .hero-title span{color:var(--blue);display:block}
-    .hero-title em{color:var(--sky);font-style:normal}
+    .hero-title em{color:var(--sky);font-style:normal;display:block}
     .hero-desc{
       margin-top:22px;max-width:480px;
       font-size:1.02rem;line-height:1.8;color:var(--text-muted);font-weight:400;
@@ -178,31 +178,44 @@
     /* PRODUCTS */
     #produtos{padding:90px 60px;background:linear-gradient(180deg,var(--sky-light),var(--blue-pale))}
     .products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
-    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .product-card{
-      background:var(--white);border-radius:20px;overflow:hidden;cursor:pointer;
-      box-shadow:0 4px 20px rgba(26,79,160,.08);border:1.5px solid rgba(26,79,160,.08);
+      background:#fff;border-radius:18px;overflow:hidden;cursor:pointer;
+      border:1.5px solid rgba(26,79,160,.1);
+      box-shadow:0 4px 20px rgba(26,79,160,.07);
       transition:transform .25s,box-shadow .25s,border-color .25s;
+      display:flex;flex-direction:column;
     }
     .product-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(26,79,160,.18);border-color:var(--blue-light)}
     .product-img-wrap{
-      height:176px;display:flex;align-items:center;justify-content:center;
-      position:relative;
+      height:170px;display:flex;align-items:center;justify-content:center;
+      position:relative;background:var(--blue-pale);
     }
-    .product-img-wrap svg{width:70px;height:70px}
+    .product-img-wrap svg{width:100px;height:100px}
     .product-tag{
-      position:absolute;top:13px;left:13px;background:var(--blue);color:#fff;
-      font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-      padding:4px 10px;border-radius:50px;
+      position:absolute;top:12px;left:12px;
+      background:var(--blue);
+      color:#fff;
+      font-size:.58rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+      padding:4px 11px;border-radius:50px;
     }
-    .product-body{padding:18px}
-    .product-name{font-family:'Montserrat',sans-serif;font-size:.93rem;font-weight:800;margin-bottom:7px;color:var(--text)}
-    .product-desc{font-size:.79rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
+    .product-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+    .product-name{font-family:'Montserrat',sans-serif;font-size:.92rem;font-weight:800;margin-bottom:8px;color:var(--text);line-height:1.3}
+    .product-desc{font-size:.78rem;color:var(--text-muted);line-height:1.65;margin-bottom:16px;flex:1}
     .product-link{
-      font-size:.73rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-      color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:gap .2s;
+      font-size:.7rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+      color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:gap .2s,color .2s;
+      margin-top:auto;
     }
-    .product-link:hover{gap:8px}
+    .product-link:hover{gap:10px;color:var(--blue-light)}
+    .product-card-catalog{
+      background:linear-gradient(145deg,var(--blue),var(--sky));
+      border:none!important;box-shadow:none!important;
+      display:flex;flex-direction:column;justify-content:center;align-items:center;
+      padding:36px 28px;text-align:center;
+      min-height:260px;
+    }
+    .product-card-catalog:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(26,79,160,.35)!important}
 
     /* BANNER */
     #banner{
@@ -356,7 +369,9 @@
     <div class="hero-badge">Distribuidora Especializada · Londrina/PR</div>
     <h1 class="hero-title">
       Limpeza<br>
-      <div class="cycle-wrap"><div class="cycle"><span>Profissional</span><span>Eficiente</span><span>Garantida</span></div></div>
+      <span>Profissional</span>
+      <span>Eficiente</span>
+      <span>Garantida</span>
       <em>de Verdade</em>
     </h1>
     <p class="hero-desc">
@@ -373,7 +388,7 @@
 </section>
 
 <!-- WAVE -->
-<div style="background:var(--white)">
+<div style="background:var(--sky-light)">
   <svg viewBox="0 0 1440 55" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%">
     <path d="M0,28 C360,55 1080,0 1440,28 L1440,0 L0,0 Z" fill="#e6f2ff"/>
   </svg>
@@ -431,7 +446,7 @@
   </div>
   <div class="products-grid">
     <div class="product-card reveal">
-      <div class="product-img-wrap pi-bg1">
+      <div class="product-img-wrap" style="background:var(--blue-pale)">
         <div class="product-tag">Industrial</div>
 <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Garrafa grande -->
@@ -464,7 +479,7 @@
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img-wrap pi-bg2">
+      <div class="product-img-wrap" style="background:var(--sky-light)">
         <div class="product-tag">Sanitário</div>
 <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Corpo do spray -->
@@ -500,7 +515,7 @@
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img-wrap pi-bg3">
+      <div class="product-img-wrap" style="background:var(--blue-pale)">
         <div class="product-tag">Comercial</div>
 <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Frasco -->
@@ -536,7 +551,7 @@
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img-wrap pi-bg4">
+      <div class="product-img-wrap" style="background:var(--sky-light)">
         <div class="product-tag">Pisos</div>
 <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Cabo do rodo -->
@@ -573,7 +588,7 @@
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img-wrap pi-bg1">
+      <div class="product-img-wrap" style="background:var(--blue-pale)">
         <div class="product-tag">Higiene</div>
 <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Corpo do dispenser -->
@@ -611,7 +626,7 @@
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img-wrap pi-bg2">
+      <div class="product-img-wrap" style="background:var(--sky-light)">
         <div class="product-tag">Acessórios</div>
 <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Balde -->
@@ -648,7 +663,7 @@
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img-wrap pi-bg3">
+      <div class="product-img-wrap" style="background:var(--blue-pale)">
         <div class="product-tag">Institucional</div>
 <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Prédio/instituição -->
@@ -676,11 +691,16 @@
         <a class="product-link" href="#contato">Solicitar →</a>
       </div>
     </div>
-    <div class="product-card reveal" style="background:linear-gradient(135deg,var(--blue),var(--sky));border:none;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:34px;text-align:center;">
-      <div style="font-size:2.2rem;margin-bottom:12px">📋</div>
-      <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:#fff;margin-bottom:8px">Catálogo Completo</div>
-      <div style="font-size:.8rem;color:rgba(255,255,255,.8);margin-bottom:20px;line-height:1.6">Mais de 500 produtos disponíveis para sua empresa</div>
-      <button class="btn-white" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Catálogo</button>
+    <div class="product-card product-card-catalog reveal">
+      <div style="width:64px;height:64px;background:rgba(255,255,255,.15);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Catálogo<br>Completo</div>
+      <div style="font-size:.8rem;color:rgba(255,255,255,.75);margin-bottom:26px;line-height:1.6">Mais de 500 produtos disponíveis para sua empresa</div>
+      <button class="btn-white" style="padding:12px 28px;font-size:.78rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;border-radius:50px;white-space:nowrap;width:100%;max-width:200px" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">SOLICITAR CATÁLOGO</button>
     </div>
   </div>
 </section>
