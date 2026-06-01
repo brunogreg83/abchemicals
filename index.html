@@ -3,7 +3,27 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>AB Chemicals – Soluções em Limpeza Profissional</title>
+  <title>AB Chemicals – Soluções em Limpeza Profissional | Londrina/PR</title>
+  <!-- SEO -->
+  <meta name="description" content="AB Chemicals: distribuidora especializada em produtos químicos e insumos para limpeza profissional em Londrina e norte do Paraná. Representantes autorizados Atuante Indústria Química. Qualidade, segurança e eficiência."/>
+  <meta name="keywords" content="limpeza profissional, produtos químicos, Londrina, Paraná, Atuante, distribuidor, desinfetante, detergente, sanitizante"/>
+  <meta name="author" content="AB Chemicals"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.abchemicals.com.br/"/>
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.abchemicals.com.br/"/>
+  <meta property="og:title" content="AB Chemicals – Soluções em Limpeza Profissional"/>
+  <meta property="og:description" content="Distribuidora especializada em produtos químicos para limpeza profissional em Londrina e região norte do Paraná. Representantes Atuante Indústria Química."/>
+  <meta property="og:image" content="https://www.abchemicals.com.br/logo_ab_chemicals.png"/>
+  <meta property="og:locale" content="pt_BR"/>
+  <meta property="og:site_name" content="AB Chemicals"/>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="AB Chemicals – Soluções em Limpeza Profissional"/>
+  <meta name="twitter:description" content="Distribuidora especializada em produtos químicos para limpeza profissional em Londrina/PR."/>
+  <meta name="twitter:image" content="https://www.abchemicals.com.br/logo_ab_chemicals.png"/>
+  <!-- Fonts com font-display:swap para melhor LCP -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
@@ -503,9 +523,9 @@
 
 
 <!-- ATUANTE PARCERIA -->
-<section id="atuante" style="padding:80px 60px;background:var(--off-white);position:relative;z-index:1;overflow:hidden;">
+<section id="atuante">
   <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 400px at 90% 50%,rgba(26,79,160,.04) 0%,transparent 70%);"></div>
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;position:relative;z-index:1;">
+  <div class="atuante-grid">
 
     <!-- LEFT: logo + badge -->
     <div class="reveal" style="display:flex;flex-direction:column;align-items:center;gap:28px;">
@@ -555,11 +575,50 @@
   </div>
 </section>
 <style>
+  #atuante{padding:80px 60px;background:var(--off-white);position:relative;z-index:1;overflow:hidden}
+  #atuante .atuante-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;position:relative;z-index:1}
   @media(max-width:768px){
-    #atuante{padding:60px 22px!important}
-    #atuante > div{grid-template-columns:1fr!important;gap:36px!important}
+    #atuante{padding:60px 22px}
+    #atuante .atuante-grid{grid-template-columns:1fr;gap:36px}
+  }
+  /* STATS / COUNTERS */
+  #stats{padding:70px 60px;background:var(--white)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
+  .stat-card{text-align:center;padding:32px 20px;background:var(--blue-pale);border-radius:16px;border:1px solid rgba(26,79,160,.1)}
+  .stat-number{font-family:'Montserrat',sans-serif;font-size:2.6rem;font-weight:900;color:var(--blue);line-height:1}
+  .stat-suffix{font-size:1.8rem;font-weight:900;color:var(--sky)}
+  .stat-label{font-size:.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-top:8px}
+  @media(max-width:768px){
+    #stats{padding:50px 22px}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+    .stat-number{font-size:2rem}
+  }
+  @media(max-width:420px){
+    .stats-grid{grid-template-columns:1fr 1fr}
   }
 </style>
+
+<!-- STATS / COUNTERS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-card reveal">
+      <div><span class="stat-number counter" data-target="500">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Clientes Ativos</div>
+    </div>
+    <div class="stat-card reveal">
+      <div><span class="stat-number counter" data-target="27">0</span><span class="stat-suffix"></span></div>
+      <div class="stat-label">Anos de Tradição</div>
+    </div>
+    <div class="stat-card reveal">
+      <div><span class="stat-number counter" data-target="80">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Produtos no Portfólio</div>
+    </div>
+    <div class="stat-card reveal">
+      <div><span class="stat-number counter" data-target="15">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Cidades Atendidas</div>
+    </div>
+  </div>
+</section>
 
 <!-- FEATURES -->
 <section id="features">
@@ -1064,13 +1123,34 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // ─── EmailJS Config ───────────────────────────────────────────────
-  // Substitua os valores abaixo com suas credenciais do EmailJS
-  const EMAILJS_PUBLIC_KEY  = 'e2QZvVniF5T6aJuRA'; // Account → API Keys
-  const EMAILJS_SERVICE_ID  = 'service_jmgkmbf';  // Email Services
-  const EMAILJS_TEMPLATE_ID = 'template_rfn3c6g'; // Email Templates
+  // SEGURANÇA: Restrinja os domínios permitidos no painel do EmailJS
+  // em Account → API Keys → "Allowed Origins" para evitar uso indevido.
+  // Estas credenciais são públicas por natureza do EmailJS (client-side).
+  const EMAILJS_PUBLIC_KEY  = 'e2QZvVniF5T6aJuRA';
+  const EMAILJS_SERVICE_ID  = 'service_jmgkmbf';
+  const EMAILJS_TEMPLATE_ID = 'template_rfn3c6g';
   // ──────────────────────────────────────────────────────────────────
 
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  // Máscara de WhatsApp
+  const whatsappInput = document.querySelector('input[name="whatsapp"]');
+  if(whatsappInput){
+    whatsappInput.addEventListener('input', function(e){
+      let v = e.target.value.replace(/\D/g,'');
+      if(v.length > 11) v = v.slice(0,11);
+      if(v.length > 6){
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      } else if(v.length > 2){
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      } else if(v.length > 0){
+        v = '(' + v;
+      }
+      e.target.value = v;
+    });
+    whatsappInput.setAttribute('maxlength','16');
+    whatsappInput.setAttribute('placeholder','(43) 99999-9999');
+  }
 
   function handleForm(e) {
     e.preventDefault();
