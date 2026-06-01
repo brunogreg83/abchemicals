@@ -251,7 +251,6 @@
     .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
 
     /* TESTIMONIALS */
-    #depoimentos{padding:90px 60px;background:var(--white)}
     .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
     .testimonial-card{
       background:var(--off-white);padding:34px 26px;border-radius:20px;
@@ -331,7 +330,7 @@
       #hero{grid-template-columns:1fr;padding:100px 22px 60px;text-align:center}
       .hero-desc{max-width:100%}
       .hero-actions{justify-content:center}
-      #features,#produtos,#depoimentos{padding:60px 22px}
+      #features,#produtos{padding:60px 22px}
       .features-grid,.testimonials-grid{grid-template-columns:1fr}
       .products-grid{grid-template-columns:1fr 1fr}
       #banner{grid-template-columns:1fr;padding:60px 22px}
@@ -352,8 +351,8 @@
     .bg-bubble{
       position:absolute;border-radius:50%;
       background:transparent;
-      border:1.5px solid rgba(59,158,255,.13);
-      box-shadow:inset 0 0 40px rgba(59,158,255,.04), 0 0 0 1px rgba(255,255,255,.6);
+      border:1.5px solid rgba(59,158,255,.18);
+      box-shadow:inset 0 0 40px rgba(59,158,255,.09), 0 0 0 1px rgba(255,255,255,.6);
       animation:bgFloat linear infinite;
     }
     /* inner sheen — simulates light refraction on soap bubble */
@@ -414,8 +413,7 @@
   <ul class="nav-links">
     <li><a href="#features">Diferenciais</a></li>
     <li><a href="#produtos">Produtos</a></li>
-    <li><a href="#depoimentos">Clientes</a></li>
-    <li><a href="#contato">Contato</a></li>
+        <li><a href="#contato">Contato</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Orçamento</button>
 </nav>
@@ -461,12 +459,15 @@
   </div>
 </section>
 
-<!-- WAVE -->
-<div style="background:var(--sky-light)">
-  <svg viewBox="0 0 1440 55" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%">
-    <path d="M0,28 C360,55 1080,0 1440,28 L1440,0 L0,0 Z" fill="#e6f2ff"/>
-  </svg>
-</div>
+<!-- BANNER -->
+<section id="banner">
+  <div style="position:relative;z-index:1">
+    <div class="banner-label">Oferta Especial</div>
+    <div class="banner-title">Primeira compra com<br>consultoria gratuita</div>
+    <div class="banner-sub">Nossa equipe técnica analisa sua operação e indica os produtos ideais para cada necessidade, sem custo adicional.</div>
+  </div>
+  <button class="btn-white" style="position:relative;z-index:1" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Aproveitar Agora →</button>
+</section>
 
 <!-- FEATURES -->
 <section id="features">
@@ -511,327 +512,94 @@
 
 <!-- PRODUTOS -->
 <section id="produtos">
-  <div class="products-header reveal">
-    <div>
-      <p class="section-label">Nosso Portfólio</p>
-      <h2 class="section-title">Linha de Produtos</h2>
-    </div>
-    <button class="btn-outline" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Ver Catálogo →</button>
-  </div>
-  <div class="products-grid">
-    <div class="product-card reveal">
-      <div class="product-img-wrap" style="background:var(--blue-pale)">
-        <div class="product-tag">Industrial</div>
-<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Garrafa grande -->
-  <rect x="38" y="32" width="34" height="58" rx="6" fill="#dbeafe" stroke="#1a4fa0" stroke-width="2"/>
-  <!-- Tampa -->
-  <rect x="44" y="22" width="22" height="12" rx="4" fill="#1a4fa0"/>
-  <!-- Rótulo -->
-  <rect x="42" y="50" width="26" height="22" rx="3" fill="#1a4fa0" opacity=".12"/>
-  <rect x="44" y="54" width="22" height="2.5" rx="1" fill="#1a4fa0" opacity=".5"/>
-  <rect x="44" y="59" width="16" height="2.5" rx="1" fill="#1a4fa0" opacity=".35"/>
-  <rect x="44" y="64" width="19" height="2.5" rx="1" fill="#1a4fa0" opacity=".35"/>
-  <!-- Seta/dosador -->
-  <rect x="72" y="40" width="8" height="3" rx="1.5" fill="#2b7fff"/>
-  <rect x="77" y="36" width="3" height="11" rx="1.5" fill="#2b7fff"/>
-  <!-- Bolhas -->
-  <circle cx="28" cy="55" r="5" stroke="#2b7fff" stroke-width="1.8" fill="#eef4ff"/>
-  <circle cx="22" cy="40" r="3.5" stroke="#2b7fff" stroke-width="1.5" fill="#eef4ff"/>
-  <circle cx="33" cy="35" r="2.5" stroke="#2b7fff" stroke-width="1.5" fill="#eef4ff"/>
-  <circle cx="92" cy="58" r="4" stroke="#2b7fff" stroke-width="1.5" fill="#eef4ff"/>
-  <circle cx="97" cy="44" r="2.8" stroke="#1a4fa0" stroke-width="1.5" fill="#eef4ff"/>
-  <!-- Gotas -->
-  <ellipse cx="55" cy="91" rx="3" ry="4" fill="#2b7fff" opacity=".3"/>
-  <ellipse cx="65" cy="93" rx="2" ry="3" fill="#2b7fff" opacity=".2"/>
-</svg>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Detergentes & Desengraxantes</div>
-        <div class="product-desc">Fórmulas concentradas para remoção de gordura e sujidades pesadas em ambientes industriais.</div>
-        <a class="product-link" href="#contato">Solicitar →</a>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img-wrap" style="background:var(--sky-light)">
-        <div class="product-tag">Sanitário</div>
-<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Corpo do spray -->
-  <rect x="45" y="48" width="28" height="44" rx="6" fill="#dbeafe" stroke="#1a4fa0" stroke-width="2"/>
-  <!-- Cabeça/gatilho -->
-  <path d="M45 58 L32 52 Q28 50 30 44 L45 44 Z" fill="#1a4fa0"/>
-  <!-- Bico -->
-  <rect x="28" y="44" width="3" height="10" rx="1.5" fill="#1a4fa0" transform="rotate(-20 28 44)"/>
-  <!-- Névoa/spray saindo -->
-  <path d="M20 32 Q16 28 20 24" stroke="#2b7fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".7"/>
-  <path d="M24 28 Q22 22 27 20" stroke="#2b7fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".6"/>
-  <path d="M29 25 Q30 18 36 18" stroke="#2b7fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/>
-  <!-- Partículas nevoa -->
-  <circle cx="18" cy="22" r="2" fill="#2b7fff" opacity=".3"/>
-  <circle cx="25" cy="17" r="1.5" fill="#2b7fff" opacity=".25"/>
-  <circle cx="33" cy="15" r="1.8" fill="#2b7fff" opacity=".2"/>
-  <circle cx="15" cy="30" r="1.2" fill="#2b7fff" opacity=".2"/>
-  <!-- Rótulo corpo -->
-  <rect x="49" y="60" width="20" height="18" rx="3" fill="#1a4fa0" opacity=".1"/>
-  <rect x="51" y="63" width="16" height="2" rx="1" fill="#1a4fa0" opacity=".4"/>
-  <rect x="51" y="67.5" width="11" height="2" rx="1" fill="#1a4fa0" opacity=".3"/>
-  <rect x="51" y="72" width="14" height="2" rx="1" fill="#1a4fa0" opacity=".3"/>
-  <!-- Símbolo proteção -->
-  <path d="M59 76 L59 86 Q59 90 59 90 Q59 90 59 86 L59 76Z" stroke="#1a4fa0" stroke-width="1.5" fill="none"/>
-  <path d="M53 79 Q59 76 65 79 L65 86 Q65 92 59 94 Q53 92 53 86 Z" stroke="#1a4fa0" stroke-width="1.8" fill="#eef4ff"/>
-  <path d="M56 86 L58.5 88.5 L63 83" stroke="#1a4fa0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Desinfetantes & Sanitizantes</div>
-        <div class="product-desc">Bactericidas e fungicidas para higienização em conformidade com normas sanitárias.</div>
-        <a class="product-link" href="#contato">Solicitar →</a>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img-wrap" style="background:var(--blue-pale)">
-        <div class="product-tag">Comercial</div>
-<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Frasco -->
-  <path d="M44 40 L44 82 Q44 88 50 88 L70 88 Q76 88 76 82 L76 40 Q76 34 70 34 L50 34 Q44 34 44 40Z" fill="#dbeafe" stroke="#1a4fa0" stroke-width="2"/>
-  <!-- Gargalo -->
-  <rect x="52" y="24" width="16" height="12" rx="3" fill="#1a4fa0" opacity=".8"/>
-  <!-- Tampa -->
-  <rect x="50" y="19" width="20" height="7" rx="3.5" fill="#1a4fa0"/>
-  <!-- Líquido interno -->
-  <path d="M46 60 L46 82 Q46 86 50 86 L70 86 Q74 86 74 82 L74 60 Z" fill="#2b7fff" opacity=".12"/>
-  <!-- Ondinha do líquido -->
-  <path d="M46 60 Q52 56 60 60 Q68 64 74 60" stroke="#2b7fff" stroke-width="1.8" fill="none"/>
-  <!-- Rótulo -->
-  <rect x="48" y="40" width="24" height="16" rx="3" fill="#1a4fa0" opacity=".1"/>
-  <rect x="50" y="43" width="20" height="2" rx="1" fill="#1a4fa0" opacity=".45"/>
-  <rect x="50" y="47.5" width="14" height="2" rx="1" fill="#1a4fa0" opacity=".3"/>
-  <rect x="50" y="52" width="17" height="2" rx="1" fill="#1a4fa0" opacity=".3"/>
-  <!-- Esponja à direita -->
-  <rect x="80" y="55" width="22" height="16" rx="5" fill="#2b7fff" opacity=".25" stroke="#1a4fa0" stroke-width="1.5"/>
-  <rect x="83" y="58" width="16" height="2.5" rx="1" fill="#1a4fa0" opacity=".3"/>
-  <rect x="83" y="63" width="12" height="2.5" rx="1" fill="#1a4fa0" opacity=".3"/>
-  <!-- Espuma -->
-  <circle cx="86" cy="49" r="4" fill="#eef4ff" stroke="#2b7fff" stroke-width="1.5"/>
-  <circle cx="93" cy="46" r="3" fill="#eef4ff" stroke="#2b7fff" stroke-width="1.5"/>
-  <circle cx="99" cy="50" r="3.5" fill="#eef4ff" stroke="#2b7fff" stroke-width="1.5"/>
-  <circle cx="90" cy="42" r="2.5" fill="#eef4ff" stroke="#2b7fff" stroke-width="1.2"/>
-</svg>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Limpadores Multiuso</div>
-        <div class="product-desc">Soluções versáteis para vidros, superfícies e pisos em ambientes corporativos.</div>
-        <a class="product-link" href="#contato">Solicitar →</a>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img-wrap" style="background:var(--sky-light)">
-        <div class="product-tag">Pisos</div>
-<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Cabo do rodo -->
-  <rect x="57" y="18" width="6" height="65" rx="3" fill="#1a4fa0"/>
-  <!-- Cabeça do rodo -->
-  <rect x="28" y="80" width="64" height="12" rx="6" fill="#1a4fa0"/>
-  <!-- Borracha rodo -->
-  <rect x="30" y="89" width="60" height="5" rx="2.5" fill="#2b7fff" opacity=".5"/>
-  <!-- Piso brilhando -->
-  <rect x="18" y="96" width="84" height="8" rx="2" fill="#dbeafe" stroke="#1a4fa0" stroke-width="1.5"/>
-  <!-- Reflexo no piso -->
-  <path d="M22 99 L50 99" stroke="#2b7fff" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
-  <path d="M55 99 L72 99" stroke="#2b7fff" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
-  <path d="M76 99 L98 99" stroke="#2b7fff" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
-  <!-- Estrelas de brilho -->
-  <path d="M35 70 L36.5 67 L38 70 L35 70Z" fill="#2b7fff" opacity=".5"/>
-  <path d="M36.5 65 L36.5 72" stroke="#2b7fff" stroke-width="1.2" opacity=".4"/>
-  <path d="M33 68.5 L40 68.5" stroke="#2b7fff" stroke-width="1.2" opacity=".4"/>
-  <path d="M82 60 L83.5 57 L85 60 L82 60Z" fill="#2b7fff" opacity=".4"/>
-  <path d="M83.5 55 L83.5 62" stroke="#2b7fff" stroke-width="1.2" opacity=".35"/>
-  <path d="M80 58.5 L87 58.5" stroke="#2b7fff" stroke-width="1.2" opacity=".35"/>
-  <!-- Pequenas estrelas -->
-  <circle cx="48" cy="55" r="1.8" fill="#2b7fff" opacity=".3"/>
-  <circle cx="68" cy="50" r="1.4" fill="#1a4fa0" opacity=".25"/>
-  <circle cx="90" cy="68" r="1.6" fill="#2b7fff" opacity=".3"/>
-  <!-- Brilho curvo no cabo -->
-  <path d="M61 20 Q63 30 62 45" stroke="white" stroke-width="1.5" opacity=".4" stroke-linecap="round"/>
-</svg>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Produtos para Pisos</div>
-        <div class="product-desc">Ceras, seladores e polidores para manutenção de pisos de qualquer material.</div>
-        <a class="product-link" href="#contato">Solicitar →</a>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img-wrap" style="background:var(--blue-pale)">
-        <div class="product-tag">Higiene</div>
-<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Corpo do dispenser -->
-  <rect x="36" y="38" width="38" height="58" rx="8" fill="#dbeafe" stroke="#1a4fa0" stroke-width="2"/>
-  <!-- Topo arredondado -->
-  <ellipse cx="55" cy="38" rx="19" ry="7" fill="#1a4fa0"/>
-  <!-- Bomba/punho -->
-  <rect x="51" y="22" width="8" height="18" rx="4" fill="#1a4fa0"/>
-  <!-- Cabeça da bomba -->
-  <ellipse cx="55" cy="22" rx="9" ry="5" fill="#2b7fff"/>
-  <!-- Bico lateral -->
-  <path d="M55 22 Q68 22 72 30" stroke="#2b7fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-  <circle cx="73" cy="31" r="3" fill="#2b7fff"/>
-  <!-- Sabão saindo -->
-  <path d="M73 34 Q76 38 74 44" stroke="#2b7fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".6"/>
-  <!-- Bolhas sabão -->
-  <circle cx="79" cy="40" r="3" stroke="#2b7fff" stroke-width="1.5" fill="#eef4ff"/>
-  <circle cx="84" cy="34" r="2" stroke="#2b7fff" stroke-width="1.2" fill="#eef4ff"/>
-  <circle cx="76" cy="48" r="2.5" stroke="#2b7fff" stroke-width="1.2" fill="#eef4ff"/>
-  <!-- Rótulo corpo -->
-  <rect x="40" y="52" width="30" height="24" rx="4" fill="#1a4fa0" opacity=".08"/>
-  <rect x="43" y="56" width="24" height="2.5" rx="1" fill="#1a4fa0" opacity=".4"/>
-  <rect x="43" y="61" width="18" height="2.5" rx="1" fill="#1a4fa0" opacity=".3"/>
-  <rect x="43" y="66" width="21" height="2.5" rx="1" fill="#1a4fa0" opacity=".3"/>
-  <!-- Faixa inferior colorida -->
-  <rect x="36" y="82" width="38" height="14" rx="0 0 8 8" fill="#2b7fff" opacity=".15"/>
-  <!-- Base -->
-  <ellipse cx="55" cy="96" rx="22" ry="5" fill="#1a4fa0" opacity=".15"/>
-</svg>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Higiene Pessoal</div>
-        <div class="product-desc">Sabonetes, álcool gel, papel toalha e dispensers para pontos de higienização.</div>
-        <a class="product-link" href="#contato">Solicitar →</a>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img-wrap" style="background:var(--sky-light)">
-        <div class="product-tag">Acessórios</div>
-<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Balde -->
-  <path d="M30 60 L35 95 Q35 98 40 98 L68 98 Q73 98 73 95 L78 60 Z" fill="#dbeafe" stroke="#1a4fa0" stroke-width="2"/>
-  <!-- Alça balde -->
-  <path d="M38 60 Q54 48 70 60" stroke="#1a4fa0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <!-- Água no balde -->
-  <path d="M32 75 L76 75" stroke="#2b7fff" stroke-width="1.5" opacity=".3"/>
-  <path d="M33 80 L75 80" stroke="#2b7fff" stroke-width="1.2" opacity=".2"/>
-  <!-- Vassoura / esfregão -->
-  <rect x="80" y="25" width="5" height="68" rx="2.5" fill="#1a4fa0" opacity=".7"/>
-  <path d="M72 90 L72 98 Q72 100 75 100 L88 100 Q91 100 91 98 L91 90 Z" fill="#2b7fff" opacity=".4" stroke="#1a4fa0" stroke-width="1.5"/>
-  <!-- Cerdas vassoura -->
-  <line x1="74" y1="100" x2="72" y2="106" stroke="#1a4fa0" stroke-width="1.2"/>
-  <line x1="77" y1="100" x2="76" y2="107" stroke="#1a4fa0" stroke-width="1.2"/>
-  <line x1="80" y1="100" x2="80" y2="108" stroke="#1a4fa0" stroke-width="1.2"/>
-  <line x1="83" y1="100" x2="84" y2="107" stroke="#1a4fa0" stroke-width="1.2"/>
-  <line x1="86" y1="100" x2="88" y2="106" stroke="#1a4fa0" stroke-width="1.2"/>
-  <line x1="89" y1="100" x2="92" y2="105" stroke="#1a4fa0" stroke-width="1.2"/>
-  <!-- Pano microfibra -->
-  <rect x="16" y="48" width="22" height="16" rx="4" fill="#eef4ff" stroke="#2b7fff" stroke-width="1.8"/>
-  <path d="M19 54 L35 54" stroke="#2b7fff" stroke-width="1.2" opacity=".4"/>
-  <path d="M19 58.5 L35 58.5" stroke="#2b7fff" stroke-width="1.2" opacity=".4"/>
-  <!-- Luva -->
-  <path d="M18 30 Q15 24 20 20 Q25 16 28 22 L32 34 Q28 38 24 36 Z" fill="#dbeafe" stroke="#1a4fa0" stroke-width="1.8"/>
-  <path d="M28 22 L30 18 Q33 15 35 19 L34 26" stroke="#1a4fa0" stroke-width="1.5" fill="none"/>
-  <path d="M30 19 L32 15 Q35 13 36 17 L36 23" stroke="#1a4fa0" stroke-width="1.5" fill="none"/>
-</svg>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Equipamentos & Acessórios</div>
-        <div class="product-desc">Borrifadores, microfibras, rodos e utensílios para limpeza profissional completa.</div>
-        <a class="product-link" href="#contato">Solicitar →</a>
-      </div>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-img-wrap" style="background:var(--blue-pale)">
-        <div class="product-tag">Institucional</div>
-<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Prédio/instituição -->
-  <rect x="22" y="42" width="76" height="60" rx="4" fill="#dbeafe" stroke="#1a4fa0" stroke-width="2"/>
-  <!-- Telhado / entrada -->
-  <path d="M18 44 L60 22 L102 44 Z" fill="#1a4fa0" opacity=".85"/>
-  <!-- Porta entrada -->
-  <rect x="50" y="78" width="20" height="24" rx="3" fill="#1a4fa0" opacity=".3"/>
-  <circle cx="67" cy="91" r="1.8" fill="#1a4fa0" opacity=".6"/>
-  <!-- Janelas -->
-  <rect x="28" y="52" width="14" height="12" rx="2" fill="#eef4ff" stroke="#1a4fa0" stroke-width="1.5"/>
-  <rect x="78" y="52" width="14" height="12" rx="2" fill="#eef4ff" stroke="#1a4fa0" stroke-width="1.5"/>
-  <rect x="28" y="68" width="14" height="10" rx="2" fill="#eef4ff" stroke="#1a4fa0" stroke-width="1.5"/>
-  <rect x="78" y="68" width="14" height="10" rx="2" fill="#eef4ff" stroke="#1a4fa0" stroke-width="1.5"/>
-  <!-- Cruz hospitalar centralizada -->
-  <rect x="53" y="50" width="14" height="24" rx="3" fill="white" stroke="#1a4fa0" stroke-width="1.5"/>
-  <rect x="47" y="56" width="26" height="12" rx="3" fill="white" stroke="#1a4fa0" stroke-width="1.5"/>
-  <rect x="55" y="52" width="10" height="20" rx="2" fill="#2b7fff" opacity=".25"/>
-  <rect x="49" y="58" width="22" height="8" rx="2" fill="#2b7fff" opacity=".25"/>
-</svg>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Produtos Institucionais</div>
-        <div class="product-desc">Linha completa para hospitais, hotéis e estabelecimentos com exigências sanitárias rigorosas.</div>
-        <a class="product-link" href="#contato">Solicitar →</a>
-      </div>
-    </div>
-      
-    <div class="product-card product-card-catalog reveal">
-      <div style="width:64px;height:64px;background:rgba(255,255,255,.15);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        <div style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-      </div>
-      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;color:#fff;margin-bottom:12px;line-height:1.2">Catálogo<br>Completo</div>
-      <div style="font-size:.8rem;color:rgba(255,255,255,.75);margin-bottom:26px;line-height:1.6">Mais de 500 produtos disponíveis para sua empresa</div>
-      <button class="btn-white" style="padding:12px 28px;font-size:.78rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;border-radius:50px" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Catálogo →</button>
-    </div>
-  </div>
-</div>
-</section>
+  <!-- HEADER PRODUTOS MODERNO -->
+  <div class="products-header reveal" style="display:block;text-align:center;margin-bottom:48px">
+    <p class="section-label" style="justify-content:center;margin-bottom:8px">Portfólio Completo</p>
+    <h2 class="section-title" style="margin-bottom:14px">Tudo que sua empresa<br>precisa, em um só lugar</h2>
+    <p style="color:var(--text-muted);font-size:1rem;max-width:520px;margin:0 auto 28px;line-height:1.7">Produtos certificados, entrega rápida em Londrina e região. <strong style="color:var(--blue)">Estoque disponível para pronta entrega.</strong></p>
 
-<!-- BANNER -->
-<section id="banner">
-  <div style="position:relative;z-index:1">
-    <div class="banner-label">Oferta Especial</div>
-    <div class="banner-title">Primeira compra com<br>consultoria gratuita</div>
-    <div class="banner-sub">Nossa equipe técnica analisa sua operação e indica os produtos ideais para cada necessidade, sem custo adicional.</div>
   </div>
-  <button class="btn-white" style="position:relative;z-index:1" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Aproveitar Agora →</button>
-</section>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:40px">
 
-<!-- DEPOIMENTOS -->
-<section id="depoimentos">
-  <div style="text-align:center">
-    <p class="section-label reveal" style="justify-content:center">Quem já escolheu</p>
-    <h2 class="section-title reveal" style="text-align:center;margin-bottom:0">O que nossos clientes dizem</h2>
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
+      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Detergentes & Desengraxantes</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Industrial</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
+      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Desinfetantes & Sanitizantes</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Sanitário</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
+      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Limpadores Multiuso</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Comercial</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
+      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M3 7v14h18V7"/><path d="M9 11h6"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Produtos para Pisos</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Pisos</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
+      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Higiene Pessoal</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Higiene</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
+      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 116 18"/><path d="M19.07 4.93L21 3"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Equipamentos & Acessórios</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Acessórios</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
+      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Produtos Institucionais</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Institucional</div>
+      </div>
+    </div>
+
   </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"A AB Chemicals transformou nossa operação de limpeza. Produtos de altíssima qualidade, entrega sempre no prazo e um atendimento que faz toda a diferença."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">MR</div>
-        <div>
-          <div class="author-name">Marcos Rodrigues</div>
-          <div class="author-role">Gerente · Hotel Comfort Londrina</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"Parceria de anos. A equipe técnica da AB Chemicals sempre nos orienta na escolha dos produtos certos para cada necessidade. Confiança total!"</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">AS</div>
-        <div>
-          <div class="author-name">Ana Silva</div>
-          <div class="author-role">Diretora · Clínica São Lucas</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"Reduzimos nosso custo com limpeza em 30% após migrar para os produtos concentrados da AB. Entrega rápida e estoque sempre disponível."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">FP</div>
-        <div>
-          <div class="author-name">Felipe Prado</div>
-          <div class="author-role">Supervisor · Indústria Metalúrgica Norte</div>
-        </div>
-      </div>
-    </div>
+
+  <!-- CTA catálogo -->
+  <div class="reveal" style="text-align:center;margin-top:8px">
+    <button class="btn-primary" style="padding:15px 38px;font-size:.92rem" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
+      Solicitar Catálogo Completo →
+    </button>
   </div>
+
 </section>
 
 <!-- CONTATO -->
@@ -910,6 +678,10 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         <span style="color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem">LinkedIn</span>
       </a>
+      <a href="https://www.facebook.com/profile.php?id=61590121094505" target="_blank" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:12px;background:#1877f2;padding:10px 18px;border-radius:12px;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        <span style="color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem">Facebook</span>
+      </a>
       <a href="https://instagram.com/abchemicals" target="_blank" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:12px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);padding:10px 18px;border-radius:12px;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
         <span style="color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem">@abchemicals</span>
@@ -924,7 +696,7 @@
 </footer>
 
 <!-- WHATSAPP FLUTUANTE -->
-<a href="https://wa.me/5543999990000" target="_blank" title="Fale conosco no WhatsApp"
+<a href="https://wa.me/5543988712001" target="_blank" title="Fale conosco no WhatsApp"
   style="position:fixed;bottom:28px;right:28px;z-index:999;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#25d366,#1da851);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);text-decoration:none;animation:waPulse 2.5s ease-in-out infinite;transition:transform .2s,box-shadow .2s"
   onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 10px 32px rgba(37,211,102,.6)'"
   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 24px rgba(37,211,102,.45)'"
