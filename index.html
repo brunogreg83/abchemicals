@@ -721,7 +721,10 @@
   </div>
   <div class="reveal">
     <div class="form-box">
-      <form id="orcamento-form" onsubmit="handleForm(event)">
+      <form id="orcamento-form" action="https://formsubmit.co/abchemicalspr@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Novo orçamento pelo site AB Chemicals"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
         <div class="form-row">
           <div class="form-group"><label>Nome</label><input type="text" name="nome" placeholder="Seu nome" required/></div>
           <div class="form-group"><label>Empresa</label><input type="text" name="empresa" placeholder="Nome da empresa"/></div>
@@ -746,7 +749,7 @@
         </div>
         <div class="form-group"><label>Mensagem</label><textarea name="mensagem" placeholder="Descreva sua necessidade ou produto de interesse..."></textarea></div>
         <div id="form-status" style="display:none;margin-bottom:14px;padding:13px 15px;font-size:.88rem;border-radius:10px;font-weight:600;"></div>
-        <button type="submit" id="form-btn" class="btn-primary" style="width:100%;padding:16px;font-size:.95rem">Enviar Mensagem →</button>
+        <button type="submit" class="btn-primary" style="width:100%;padding:16px;font-size:.95rem">Enviar Mensagem →</button>
       </form>
     </div>
   </div>
@@ -825,22 +828,7 @@
   }, {threshold: 0.12});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  function handleForm(e) {
-    e.preventDefault();
-    const btn = document.getElementById('form-btn');
-    const status = document.getElementById('form-status');
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-    setTimeout(() => {
-      status.style.display = 'block';
-      status.style.background = '#eef4ff';
-      status.style.border = '1.5px solid #1a4fa0';
-      status.style.color = '#1a4fa0';
-      status.textContent = '✓ Mensagem enviada! Entraremos em contato em breve.';
-      btn.textContent = 'Mensagem Enviada ✓';
-      e.target.reset();
-    }, 1200);
-  }
+
 </script>
 </body>
 </html>
