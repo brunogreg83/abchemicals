@@ -4,54 +4,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AB Chemicals - Hero Curvo</title>
+<title>AB Chemicals - Hero Reconstruído</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Montserrat,sans-serif;background:#f8f9fb}
+body{font-family:Montserrat,sans-serif;background:#f8f9fb;color:#163b72}
 
-header{height:190px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 50px}
+header{
+height:190px;background:#fff;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 50px;
+}
 .logo img{height:165px}
 nav{display:flex;gap:68px}
 nav a{text-decoration:none;color:#163b72;font-weight:700;font-size:15px}
 
 .hero{
 height:530px;
-position:relative;
-overflow:hidden;
 display:flex;
+overflow:hidden;
+background:#fff;
 }
 
-.left{
-width:43%;
-background:linear-gradient(135deg,#002f68 0%,#00142f 80%);
-padding:90px 70px;
+.hero-left{
+width:42%;
+background:linear-gradient(135deg,#00356f 0%,#00152f 85%);
 color:#fff;
+padding:90px 70px;
 position:relative;
 z-index:2;
+
+/* curva integrada */
+border-top-right-radius:140px 265px;
+border-bottom-right-radius:140px 265px;
+
+margin-right:-55px;
 }
 
-.left h1{font-size:62px;line-height:1.03;font-weight:800;margin-bottom:22px}
-.line{width:75px;height:4px;background:#2d92ff;margin-bottom:24px}
-.left p{font-size:18px;line-height:1.8;max-width:500px;margin-bottom:35px}
-.btn{display:inline-block;background:#1f74d7;color:#fff;text-decoration:none;padding:18px 38px;border-radius:8px;font-weight:700}
-
-.right{
+.hero-right{
 flex:1;
 background:
 linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.08)),
-url('https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?q=80&w=2400&auto=format&fit=crop')
-center right/cover;
+url('https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?q=80&w=2400&auto=format&fit=crop');
+background-size:cover;
+background-position:center right;
 }
 
-.arc{
-position:absolute;
-left:39%;
-top:-5%;
-width:180px;
-height:115%;
-z-index:3;
-pointer-events:none;
+.hero-left h1{
+font-size:62px;
+line-height:1.03;
+font-weight:800;
+margin-bottom:22px;
+}
+
+.line{width:78px;height:4px;background:#2d92ff;margin-bottom:24px}
+
+.hero-left p{
+font-size:18px;
+line-height:1.8;
+max-width:500px;
+margin-bottom:35px;
+}
+
+.btn{
+display:inline-block;
+background:#1f74d7;
+padding:18px 38px;
+border-radius:8px;
+color:#fff;
+text-decoration:none;
+font-weight:700;
 }
 </style>
 </head>
@@ -72,25 +94,13 @@ pointer-events:none;
 </header>
 
 <section class="hero">
-
-<div class="left">
+<div class="hero-left">
 <h1>Soluções industriais<br>com excelência</h1>
 <div class="line"></div>
 <p>Representamos marcas líderes e oferecemos consultoria técnica especializada para impulsionar resultados e gerar valor para o seu negócio.</p>
 <a href="#" class="btn">SAIBA MAIS</a>
 </div>
-
-<div class="right"></div>
-
-<svg class="arc" viewBox="0 0 180 620" preserveAspectRatio="none">
-<path d="M150,0 C10,120 10,500 150,620 L0,620 L0,0 Z"
-fill="rgba(45,146,255,0.25)"/>
-<path d="M115,0 C-5,120 -5,500 115,620"
-stroke="rgba(120,190,255,0.35)"
-stroke-width="18"
-fill="none"/>
-</svg>
-
+<div class="hero-right"></div>
 </section>
 
 </body>
