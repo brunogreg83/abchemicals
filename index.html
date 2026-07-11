@@ -156,6 +156,27 @@
     /* WAVE */
     .wave svg{display:block;width:100%}
 
+    /* PRODUTOS - Category Cards */
+    .category-card{
+      display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;
+      background:var(--off-white);border:1.5px solid var(--blue-pale);
+      border-radius:14px;padding:26px 20px;
+      transition:border-color .2s,box-shadow .2s,transform .2s;
+      cursor:default;
+    }
+    .category-card:hover{
+      border-color:var(--blue-light);
+      box-shadow:0 4px 18px rgba(26,79,160,.1);
+      transform:translateY(-2px);
+    }
+    .category-icon-wrap{
+      width:52px;height:52px;border-radius:14px;background:var(--blue-pale);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      margin:0 auto 14px;
+    }
+    .category-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)}
+    .category-sub{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+
     /* SECTION COMMON */
     .section-label{
       font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);
@@ -458,83 +479,76 @@
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:40px">
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
-      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/></svg>
+    <div class="reveal category-card">
+      <div class="category-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5s6.5 7.6 6.5 12.3a6.5 6.5 0 11-13 0C5.5 10.1 12 2.5 12 2.5z"/></svg>
       </div>
       <div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Detergentes & Desengraxantes</div>
-        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Industrial</div>
+        <div class="category-title">Detergentes & Desengraxantes</div>
+        <div class="category-sub">Industrial</div>
       </div>
     </div>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
-      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="reveal category-card">
+      <div class="category-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
       </div>
       <div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Desinfetantes & Sanitizantes</div>
-        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Sanitário</div>
+        <div class="category-title">Desinfetantes & Sanitizantes</div>
+        <div class="category-sub">Sanitário</div>
       </div>
     </div>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
-      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <div class="reveal category-card">
+      <div class="category-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h-3a1 1 0 00-1 1v2.5L8.3 9.8A2 2 0 007 11.5V20a2 2 0 002 2h4a2 2 0 002-2v-8.5a2 2 0 00-1.3-1.7L12 7.5V6h2"/><path d="M17 6l2-2M19 9l2.5-1M17.5 3l1.5 2"/></svg>
       </div>
       <div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Limpadores Multiuso</div>
-        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Comercial</div>
+        <div class="category-title">Limpadores Multiuso</div>
+        <div class="category-sub">Comercial</div>
       </div>
     </div>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
-      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M3 7v14h18V7"/><path d="M9 11h6"/></svg>
+    <div class="reveal category-card">
+      <div class="category-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
       </div>
       <div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Produtos para Pisos</div>
-        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Pisos</div>
+        <div class="category-title">Produtos para Pisos</div>
+        <div class="category-sub">Pisos</div>
       </div>
     </div>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
-      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    <div class="reveal category-card">
+      <div class="category-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
       </div>
       <div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Higiene Pessoal</div>
-        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Higiene</div>
+        <div class="category-title">Higiene Pessoal</div>
+        <div class="category-sub">Higiene</div>
       </div>
     </div>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
-      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 116 18"/><path d="M19.07 4.93L21 3"/></svg>
+    <div class="reveal category-card">
+      <div class="category-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
       </div>
       <div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Equipamentos & Acessórios</div>
-        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Acessórios</div>
+        <div class="category-title">Equipamentos & Acessórios</div>
+        <div class="category-sub">Acessórios</div>
       </div>
     </div>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;background:var(--off-white);border:1.5px solid var(--blue-pale);border-radius:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--blue-light)';this.style.boxShadow='0 4px 18px rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='var(--blue-pale)';this.style.boxShadow='none'">
-      <div style="width:42px;height:42px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <div class="reveal category-card">
+      <div class="category-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V6a1 1 0 011-1h6a1 1 0 011 1v15"/><path d="M13 10h5a1 1 0 011 1v10"/><path d="M3 21h18"/><path d="M8 8h1M8 12h1M8 16h1M16 14h1M16 18h1"/></svg>
       </div>
       <div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)">Produtos Institucionais</div>
-        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Institucional</div>
+        <div class="category-title">Produtos Institucionais</div>
+        <div class="category-sub">Institucional</div>
       </div>
     </div>
 
-  </div>
-
-  <!-- CTA catálogo -->
-  <div class="reveal" style="text-align:center;margin-top:8px">
-    <button class="btn-primary" style="padding:15px 38px;font-size:.92rem" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
-      Solicitar Catálogo Completo →
-    </button>
   </div>
 
 </section>
