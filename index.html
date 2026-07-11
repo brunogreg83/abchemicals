@@ -232,10 +232,12 @@
       display:flex;justify-content:center;align-items:center;
       position:relative;overflow:hidden;
     }
+    .banner-wrap{position:relative;width:100%;line-height:0}
     .banner-img{
       width:100%;max-width:100%;height:auto;display:block;
       position:relative;z-index:1;
     }
+    .banner-hotspot{position:absolute;z-index:2;display:block;-webkit-tap-highlight-color:rgba(0,0,0,.15)}
     .banner-label{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:10px}
     .banner-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.1;color:#fff}
     .banner-sub{margin-top:12px;font-size:.97rem;color:rgba(255,255,255,.8);max-width:500px;line-height:1.7}
@@ -518,13 +520,13 @@
   <p class="section-label" style="justify-content:center">Consultoria</p>
 </div>
 <section id="banner">
-  <img class="banner-img" usemap="#bannerMap" src="banner_consultoria.png" alt="Consultoria - Antônio Paulo Portugal, Engenheiro Químico - APP Engenharia Química e Projetos"/>
-  <map name="bannerMap">
-    <area shape="rect" coords="1161,30,1445,129" href="https://www.alfaengenhariaquimica.com.br" target="_blank" alt="APP Engenharia Química e Projetos">
-    <area shape="rect" coords="1175,329,1268,424" href="https://wa.me/5543999201903" target="_blank" alt="WhatsApp">
-    <area shape="rect" coords="1321,318,1437,436" href="tel:+5543999201903" alt="Telefone">
-    <area shape="rect" coords="1161,458,1438,492" href="mailto:apportugal@hotmail.com" alt="E-mail">
-  </map>
+  <div class="banner-wrap">
+    <img class="banner-img" src="banner_consultoria.png" alt="Consultoria - Antônio Paulo Portugal, Engenheiro Químico - APP Engenharia Química e Projetos"/>
+    <a class="banner-hotspot" style="left:72.56%;top:6%;width:17.75%;height:19.8%" href="https://www.alfaengenhariaquimica.com.br" target="_blank" aria-label="APP Engenharia Química e Projetos"></a>
+    <a class="banner-hotspot" style="left:73.44%;top:65.8%;width:5.81%;height:19%" href="https://wa.me/5543999201903" target="_blank" aria-label="WhatsApp"></a>
+    <a class="banner-hotspot" style="left:82.56%;top:63.6%;width:7.25%;height:23.6%" href="tel:+5543999201903" aria-label="Telefone"></a>
+    <a class="banner-hotspot" style="left:72.56%;top:91.6%;width:17.31%;height:6.8%" href="mailto:apportugal@hotmail.com" aria-label="E-mail"></a>
+  </div>
 </section>
 
 <!-- PRODUTOS -->
