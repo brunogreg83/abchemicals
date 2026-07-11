@@ -649,14 +649,49 @@
   <p class="section-label" style="justify-content:center">Consultoria</p>
 </div>
 <section id="banner">
-  <div class="banner-wrap">
-    <img class="banner-img" src="banner_consultoria.png" alt="Consultoria - Antônio Paulo Portugal, Engenheiro Químico - APP Engenharia Química e Projetos"/>
-    <a class="banner-hotspot" style="left:72.56%;top:6%;width:17.75%;height:19.8%" href="https://www.alfaengenhariaquimica.com.br" target="_blank" aria-label="APP Engenharia Química e Projetos"></a>
-    <a class="banner-hotspot" style="left:73.44%;top:65.8%;width:5.81%;height:19%" href="https://wa.me/5543999201903" target="_blank" aria-label="WhatsApp"></a>
-    <a class="banner-hotspot" style="left:82.56%;top:63.6%;width:7.25%;height:23.6%" href="tel:+5543999201903" aria-label="Telefone"></a>
-    <a class="banner-hotspot" style="left:72.56%;top:91.6%;width:17.31%;height:6.8%" href="mailto:apportugal@hotmail.com" aria-label="E-mail"></a>
+  <div class="banner-wrap" id="bannerWrap">
+    <img class="banner-img" id="bannerImg" src="banner_consultoria.png" alt="Consultoria - Antônio Paulo Portugal, Engenheiro Químico - APP Engenharia Química e Projetos"/>
+    <a class="banner-hotspot" data-x="0.7256" data-y="0.06" data-w="0.1775" data-h="0.198" href="https://www.alfaengenhariaquimica.com.br" target="_blank" aria-label="APP Engenharia Química e Projetos"></a>
+    <a class="banner-hotspot" data-x="0.7344" data-y="0.658" data-w="0.0581" data-h="0.19" href="https://wa.me/5543999201903" target="_blank" aria-label="WhatsApp"></a>
+    <a class="banner-hotspot" data-x="0.8256" data-y="0.636" data-w="0.0725" data-h="0.236" href="tel:+5543999201903" aria-label="Telefone"></a>
+    <a class="banner-hotspot" data-x="0.7256" data-y="0.916" data-w="0.1731" data-h="0.068" href="mailto:apportugal@hotmail.com" aria-label="E-mail"></a>
   </div>
 </section>
+<script>
+(function(){
+  function positionBannerHotspots(){
+    var wrap = document.getElementById('bannerWrap');
+    var img = document.getElementById('bannerImg');
+    if(!wrap || !img) return;
+    var w = img.clientWidth;
+    var h = img.clientHeight;
+    if(!w || !h) return;
+    var spots = wrap.querySelectorAll('.banner-hotspot');
+    for(var i=0;i<spots.length;i++){
+      var el = spots[i];
+      var x = parseFloat(el.getAttribute('data-x'));
+      var y = parseFloat(el.getAttribute('data-y'));
+      var ww = parseFloat(el.getAttribute('data-w'));
+      var hh = parseFloat(el.getAttribute('data-h'));
+      el.style.left = (x*w) + 'px';
+      el.style.top = (y*h) + 'px';
+      el.style.width = (ww*w) + 'px';
+      el.style.height = (hh*h) + 'px';
+    }
+  }
+  window.addEventListener('load', positionBannerHotspots);
+  window.addEventListener('resize', positionBannerHotspots);
+  if(document.getElementById('bannerImg') && document.getElementById('bannerImg').complete){
+    positionBannerHotspots();
+  }
+  var bImg = document.getElementById('bannerImg');
+  if(bImg){ bImg.addEventListener('load', positionBannerHotspots); }
+  if(window.ResizeObserver){
+    var ro = new ResizeObserver(positionBannerHotspots);
+    if(document.getElementById('bannerWrap')) ro.observe(document.getElementById('bannerWrap'));
+  }
+})();
+</script>
 
 <!-- CALCULADORA DE DILUIÇÃO -->
 
