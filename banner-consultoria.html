@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Consultoria – AB Chemicals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blue:#1a4fa0;
+      --blue-light:#2b7fff;
+      --blue-dark:#0e3070;
+      --blue-pale:#eef4ff;
+      --sky:#3b9eff;
+      --sky-light:#e6f2ff;
+      --white:#ffffff;
+      --off-white:#f7faff;
+      --gray:#d1dce8;
+      --text:#0e1a2e;
+      --text-muted:#5a7190;
+      --shadow-b:rgba(26,79,160,.12);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Nunito',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+    .section-label{
+      font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);
+      margin-bottom:10px;display:flex;align-items:center;gap:8px;
+    }
+    .section-label::before{content:'';display:inline-block;width:22px;height:2px;background:var(--blue)}
+
+    #banner{padding:0;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden}
+    .banner-wrap{position:relative;width:100%;line-height:0}
+    .banner-img{
+      width:100%;max-width:100%;height:auto;display:block;
+      position:relative;z-index:1;
+    }
+    .banner-hotspot{position:absolute;z-index:2;display:block;-webkit-tap-highlight-color:rgba(0,0,0,.15)}
+
+    nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 40px;background:#fff;box-shadow:0 2px 12px rgba(26,79,160,.06);
+      position:sticky;top:0;z-index:100;
+    }
+    .nav-logo img{height:44px;display:block}
+    .back-link{
+      display:flex;align-items:center;gap:6px;font-weight:700;font-size:.85rem;
+      color:var(--blue);text-decoration:none;letter-spacing:.3px;
+    }
+    .back-link:hover{color:var(--blue-light)}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><a href="index.html"><img src="logo_ab_chemicals.png" alt="AB Chemicals"/></a></div>
+  <a class="back-link" href="index.html#banner">&larr; Voltar ao site</a>
+</nav>
+
+<!-- BANNER -->
+<div style="max-width:1200px;margin:0 auto;padding:0 40px">
+  <p class="section-label" style="justify-content:center">Consultoria</p>
+</div>
+<section id="banner">
+  <div class="banner-wrap" id="bannerWrap">
+    <img class="banner-img" id="bannerImg" src="banner_consultoria.png" alt="Consultoria - Antônio Paulo Portugal, Engenheiro Químico - APP Engenharia Química e Projetos"/>
+    <a class="banner-hotspot" data-x="0.7256" data-y="0.06" data-w="0.1775" data-h="0.198" href="https://www.alfaengenhariaquimica.com.br" target="_blank" aria-label="APP Engenharia Química e Projetos"></a>
+    <a class="banner-hotspot" data-x="0.7344" data-y="0.658" data-w="0.0581" data-h="0.19" href="https://wa.me/5543999201903" target="_blank" aria-label="WhatsApp"></a>
+    <a class="banner-hotspot" data-x="0.8256" data-y="0.636" data-w="0.0725" data-h="0.236" href="tel:+5543999201903" aria-label="Telefone"></a>
+    <a class="banner-hotspot" data-x="0.7256" data-y="0.916" data-w="0.1731" data-h="0.068" href="mailto:apportugal@hotmail.com" aria-label="E-mail"></a>
+  </div>
+</section>
+<script>
+(function(){
+  function positionBannerHotspots(){
+    var wrap = document.getElementById('bannerWrap');
+    var img = document.getElementById('bannerImg');
+    if(!wrap || !img) return;
+    var w = img.clientWidth;
+    var h = img.clientHeight;
+    if(!w || !h) return;
+    var spots = wrap.querySelectorAll('.banner-hotspot');
+    for(var i=0;i<spots.length;i++){
+      var el = spots[i];
+      var x = parseFloat(el.getAttribute('data-x'));
+      var y = parseFloat(el.getAttribute('data-y'));
+      var ww = parseFloat(el.getAttribute('data-w'));
+      var hh = parseFloat(el.getAttribute('data-h'));
+      el.style.left = (x*w) + 'px';
+      el.style.top = (y*h) + 'px';
+      el.style.width = (ww*w) + 'px';
+      el.style.height = (hh*h) + 'px';
+    }
+  }
+  window.addEventListener('load', positionBannerHotspots);
+  window.addEventListener('resize', positionBannerHotspots);
+  if(document.getElementById('bannerImg') && document.getElementById('bannerImg').complete){
+    positionBannerHotspots();
+  }
+  var bImg = document.getElementById('bannerImg');
+  if(bImg){ bImg.addEventListener('load', positionBannerHotspots); }
+  if(window.ResizeObserver){
+    var ro = new ResizeObserver(positionBannerHotspots);
+    if(document.getElementById('bannerWrap')) ro.observe(document.getElementById('bannerWrap'));
+  }
+})();
+</script>
+
+</body>
+</html>
