@@ -156,6 +156,74 @@
     /* WAVE */
     .wave svg{display:block;width:100%}
 
+
+    /* CLIENTES - faixa rotativa */
+    #clientes{
+      position:relative;z-index:1;
+      padding:30px 0 34px;
+      background:#fff;
+      border-top:1px solid rgba(26,79,160,.06);
+      border-bottom:1px solid rgba(26,79,160,.08);
+      overflow:hidden;
+    }
+    .clients-heading{
+      text-align:center;
+      font-family:'Montserrat',sans-serif;
+      font-size:.66rem;font-weight:800;
+      letter-spacing:3px;text-transform:uppercase;
+      color:#7890aa;
+      margin-bottom:20px;
+    }
+    .clients-marquee{
+      position:relative;
+      width:100%;
+      overflow:hidden;
+      -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
+      mask-image:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
+    }
+    .clients-track{
+      display:flex;
+      width:max-content;
+      align-items:center;
+      gap:34px;
+      animation:clientsScroll 34s linear infinite;
+      will-change:transform;
+    }
+    .clients-marquee:hover .clients-track{animation-play-state:paused}
+    .client-logo{
+      width:180px;height:82px;
+      flex:0 0 180px;
+      display:flex;align-items:center;justify-content:center;
+      padding:8px 14px;
+      border-radius:12px;
+    }
+    .client-logo img{
+      width:100%;height:100%;
+      object-fit:contain;
+      display:block;
+      filter:grayscale(1) contrast(.82);
+      opacity:.52;
+      transition:filter .25s,opacity .25s,transform .25s;
+    }
+    .client-logo:hover img{
+      filter:grayscale(1) contrast(1);
+      opacity:.82;
+      transform:scale(1.04);
+    }
+    @keyframes clientsScroll{
+      from{transform:translateX(0)}
+      to{transform:translateX(calc(-50% - 17px))}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .clients-track{animation:none}
+    }
+    @media(max-width:700px){
+      #clientes{padding:24px 0 28px}
+      .clients-heading{font-size:.6rem;margin-bottom:14px}
+      .clients-track{gap:18px;animation-duration:28s}
+      .client-logo{width:140px;height:66px;flex-basis:140px;padding:6px 10px}
+    }
+
     /* PRODUTOS - Category Cards */
     .category-card{
       display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;
@@ -510,6 +578,36 @@
   <div class="hero-visual">
     <div class="hero-logo-wrap">
       <img src="logo_ab_chemicals.png" alt="AB Chemicals – Soluções em Limpeza Profissional"/>
+    </div>
+  </div>
+</section>
+
+
+<!-- CLIENTES -->
+<section id="clientes" aria-label="Empresas atendidas">
+  <div class="clients-heading">Empresas que já confiam na AB Chemicals</div>
+  <div class="clients-marquee">
+    <div class="clients-track">
+      <div class="client-logo"><img src="clientes/gama-textil-bras.webp" alt="Gama Têxtil Brás" loading="lazy"></div>
+      <div class="client-logo"><img src="clientes/inusitta.webp" alt="Inusittá Ambientes Planejados" loading="lazy"></div>
+      <div class="client-logo"><img src="clientes/bioage.webp" alt="Bioage Skincare" loading="lazy"></div>
+      <div class="client-logo"><img src="clientes/hope.webp" alt="Hope" loading="lazy"></div>
+      <div class="client-logo"><img src="clientes/bom-apetite.webp" alt="Bom Apetite Distribuidora" loading="lazy"></div>
+      <div class="client-logo"><img src="clientes/jv.webp" alt="JV" loading="lazy"></div>
+      <div class="client-logo"><img src="clientes/restaurante-pantanal.webp" alt="Restaurante Pantanal" loading="lazy"></div>
+      <div class="client-logo"><img src="clientes/pao-puro.webp" alt="Pão Puro Panificadora" loading="lazy"></div>
+      <div class="client-logo"><img src="clientes/rovani.webp" alt="Rovani Restaurante, Lanchonete e Confeitaria" loading="lazy"></div>
+
+      <!-- repetição para manter a rolagem contínua -->
+      <div class="client-logo"><img src="clientes/gama-textil-bras.webp" alt="" aria-hidden="true"></div>
+      <div class="client-logo"><img src="clientes/inusitta.webp" alt="" aria-hidden="true"></div>
+      <div class="client-logo"><img src="clientes/bioage.webp" alt="" aria-hidden="true"></div>
+      <div class="client-logo"><img src="clientes/hope.webp" alt="" aria-hidden="true"></div>
+      <div class="client-logo"><img src="clientes/bom-apetite.webp" alt="" aria-hidden="true"></div>
+      <div class="client-logo"><img src="clientes/jv.webp" alt="" aria-hidden="true"></div>
+      <div class="client-logo"><img src="clientes/restaurante-pantanal.webp" alt="" aria-hidden="true"></div>
+      <div class="client-logo"><img src="clientes/pao-puro.webp" alt="" aria-hidden="true"></div>
+      <div class="client-logo"><img src="clientes/rovani.webp" alt="" aria-hidden="true"></div>
     </div>
   </div>
 </section>
