@@ -543,14 +543,77 @@
 </section>
 
 <style>
-#clientes{padding:28px 0 34px;background:#fff;overflow:hidden}
-.clients-heading{text-align:center;font-family:Montserrat,sans-serif;font-size:.66rem;font-weight:800;letter-spacing:3px;color:#7890aa;margin:0 0 20px}
-.clients-marquee{width:100%;overflow:hidden}
-.clients-track{display:flex;width:max-content;align-items:center;gap:34px;animation:clientsScroll 32s linear infinite}
-.client-logo{width:180px;height:82px;flex:0 0 180px;display:flex;align-items:center;justify-content:center}
-.client-logo img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;filter:grayscale(1);opacity:.52}
-@keyframes clientsScroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 17px))}}
-@media(max-width:700px){.clients-track{gap:18px}.client-logo{width:140px;height:66px;flex-basis:140px}}
+#clientes{
+  padding:30px 0 34px;
+  background:#f7f9fc;
+  overflow:hidden;
+  border-top:1px solid rgba(12,48,88,.08);
+  border-bottom:1px solid rgba(12,48,88,.08);
+}
+.clients-heading{
+  text-align:center;
+  font-family:Montserrat,sans-serif;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:3px;
+  color:#17395f;
+  margin:0 0 22px;
+}
+.clients-marquee{
+  width:100%;
+  overflow:hidden;
+  padding:4px 0;
+}
+.clients-track{
+  display:flex;
+  width:max-content;
+  align-items:center;
+  gap:18px;
+  animation:clientsScroll 38s linear infinite;
+}
+.client-logo{
+  width:205px;
+  height:105px;
+  flex:0 0 205px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 16px;
+  border-radius:12px;
+  background:rgba(255,255,255,.72);
+}
+.client-logo img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  filter:grayscale(1) contrast(1.35);
+  opacity:.82;
+  mix-blend-mode:multiply;
+  transition:filter .25s,opacity .25s,transform .25s;
+}
+.client-logo:hover img{
+  filter:grayscale(1) contrast(1.5);
+  opacity:1;
+  transform:scale(1.04);
+}
+@keyframes clientsScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(calc(-50% - 9px))}
+}
+@media(max-width:700px){
+  #clientes{padding:24px 0 28px}
+  .clients-heading{font-size:.62rem;letter-spacing:2px;margin-bottom:16px}
+  .clients-track{gap:10px;animation-duration:30s}
+  .client-logo{
+    width:155px;
+    height:78px;
+    flex-basis:155px;
+    padding:7px 10px;
+  }
+}
 </style>
 
 <!-- PRODUTOS -->
