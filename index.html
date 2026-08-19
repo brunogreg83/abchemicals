@@ -425,7 +425,7 @@
   #hero{
     min-height:auto !important;
     grid-template-columns:1fr !important;
-    padding:74px 18px 24px !important;
+    padding:94px 18px 24px !important;
     gap:0 !important;
   }
   .hero-content{padding-top:0 !important}
@@ -457,6 +457,20 @@
     height:104px !important;
   }
 }
+
+<style>
+/* Ajuste suave — logos dos clientes */
+#clientes .client-logo img{
+  height:120px !important;
+  flex-basis:120px !important;
+}
+@media(max-width:600px){
+  #clientes .client-logo img{
+    height:83px !important;
+    flex-basis:83px !important;
+  }
+}
+</style>
 </style>
 </style>
 </head>
