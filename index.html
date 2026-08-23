@@ -685,16 +685,6 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
         <div id="nf-focus-status" style="font-size:12px;color:#666;margin-bottom:10px;"></div>
         <button class="btn-primary" id="btn-emitir-focus" onclick="emitirNFeFocus()"><i class="ti ti-send"></i> Emitir NF-e (Brasil NFe)</button>
         <button class="btn-ghost" id="btn-consultar-focus" onclick="consultarNFeFocus()" style="display:none;"><i class="ti ti-refresh"></i> Consultar status</button>
-        <div id="nf-cobranca-nubank" style="display:block !important;margin-top:14px;border-top:1px solid #e8e7e0;padding-top:14px;">
-          <div class="section-title" style="margin-bottom:8px;"><i class="ti ti-file-invoice"></i> Cobrança — Nubank</div>
-          <div style="font-size:12px;color:#666;margin-bottom:10px;">A cobrança é preparada pelo ERP. O boleto deve ser gerado manualmente no Nubank, pois não há API pública de emissão de boleto integrada ao ERP.</div>
-          <div id="nf-cobranca-dados" style="background:#f9f9f7;border-radius:8px;padding:10px;font-size:12px;line-height:1.7;margin-bottom:10px;"></div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="btn-primary" onclick="copiarDadosCobrancaNubank()"><i class="ti ti-copy"></i> Copiar dados da cobrança</button>
-            <button class="btn-ghost" onclick="window.open('https://app.nubank.com.br/beta/','_blank')"><i class="ti ti-external-link"></i> Abrir Nubank</button>
-          </div>
-          <div id="nf-cobranca-status" style="font-size:12px;margin-top:8px;"></div>
-        </div>
       </div>
 
       <div style="border-top:1px solid #f0f0ec;padding-top:14px;">
@@ -1348,7 +1338,6 @@ window.ocItens = []; // estado global dos itens da OC
 window.pitens  = []; // estado global dos itens do pedido
 
 // ── Máscaras de CNPJ, Telefone e CEP ─────────────────────────────────────
-function escHtml(v) { return String(v ?? '').replace(/[&<>\"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m])); }
 function maskCNPJ(v) {
   v = v.replace(/\D/g,'').slice(0,14);
   if (v.length <= 2)  return v;
@@ -4271,8 +4260,6 @@ window.abrirEmissaoNF = id => {
   document.getElementById('btn-consultar-focus').style.display = 'none';
 
   document.getElementById('modal-emissao-nf').classList.add('open');
-  // Preparar cobrança Nubank imediatamente ao abrir a tela de NF-e, sem depender da emissão.
-  prepararCobrancaNubank();
 };
 
 window.abrirPortalSEFAZ = () => {
@@ -4345,81 +4332,6 @@ function _focusXmlUrl(ref, cliente, numero) {
   return url;
 }
 
-window.prepararCobrancaNubank = () => {
-  const p = D.pedidos.find(x => x.id === _pedidoNFId);
-  const box = document.getElementById('nf-cobranca-nubank');
-  const dados = document.getElementById('nf-cobranca-dados');
-  if (!box || !dados) return;
-  if (!p) { box.style.setProperty('display','none','important'); return; }
-  box.style.setProperty('display','block','important');
-
-  const textoPagamento = [p.forma, p.pgto, p.cond, p.condicao, p.pagamento]
-    .filter(v => v != null && String(v).trim())
-    .join(' | ');
-  const ehBoleto = /boleto|cobrança bancária/i.test(textoPagamento);
-  // Mantém o bloco visível na tela de emissão para que o usuário saiba como proceder.
-  // Se o pedido não for boleto, apenas informa a forma de pagamento configurada.
-  if (!ehBoleto) {
-    dados.innerHTML = '<b>Forma de pagamento:</b> ' + escHtml(textoPagamento || 'Não informada') + '<br><span style="color:#777;">Para preparar uma cobrança Nubank, selecione <b>Boleto bancário</b> como forma de pagamento no pedido.</span>';
-    box.style.setProperty('display','block','important');
-    const st = document.getElementById('nf-cobranca-status');
-    if (st) st.textContent = '';
-    return;
-  }
-
-  const nomePedNF = String(p.cliente || '').trim().toLowerCase();
-  const cli = D.clientes.find(c => String(c.nome || '') === p.cliente)
-           || D.clientes.find(c => String(c.nome || '').trim().toLowerCase() === nomePedNF)
-           || D.clientes.find(c => {
-                const n = String(c.nome || '').trim().toLowerCase();
-                return n && (n.includes(nomePedNF) || nomePedNF.includes(n));
-              })
-           || {};
-
-  const valor = totPed(p);
-  const cond = p.pgto || p.cond || p.condicao || p.pagamento || 'A definir';
-  const cnpj = cli.cnpj || cli.cpf || '';
-  const pedidoRef = p.numero || p.id || '';
-
-  dados.innerHTML =
-    '<b>Cliente:</b> ' + escHtml(cli.nome || p.cliente || '—') + '<br>' +
-    '<b>CNPJ/CPF:</b> ' + escHtml(cnpj || '—') + '<br>' +
-    '<b>Valor:</b> ' + R$(valor) + '<br>' +
-    '<b>Condição:</b> ' + escHtml(cond) + '<br>' +
-    '<b>Referência:</b> Pedido ' + escHtml(String(pedidoRef)) + '<br>' +
-    '<span style="color:#777;">Emita o boleto no Nubank usando esses dados.</span>';
-
-  box.style.setProperty('display','block','important');
-};
-
-window.copiarDadosCobrancaNubank = async () => {
-  const p = D.pedidos.find(x => x.id === _pedidoNFId);
-  if (!p) return;
-  const nomePedNF = String(p.cliente || '').trim().toLowerCase();
-  const cli = D.clientes.find(c => String(c.nome || '') === p.cliente)
-           || D.clientes.find(c => String(c.nome || '').trim().toLowerCase() === nomePedNF)
-           || {};
-  const cond = p.pgto || p.cond || p.condicao || p.pagamento || 'A definir';
-  const txt = [
-    'COBRANÇA AB CHEMICALS',
-    'Cliente: ' + (cli.nome || p.cliente || ''),
-    'CNPJ/CPF: ' + (cli.cnpj || cli.cpf || ''),
-    'Valor: ' + R$(totPed(p)),
-    'Condição: ' + cond,
-    'Referência: Pedido ' + (p.numero || p.id || '')
-  ].join('\n');
-  try {
-    await navigator.clipboard.writeText(txt);
-    const el = document.getElementById('nf-cobranca-status');
-    if (el) el.innerHTML='<span style="color:#2E7D32;">✓ Dados copiados. Agora abra o Nubank e gere o boleto.</span>';
-  } catch(e) {
-    const ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
-    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
-    const el = document.getElementById('nf-cobranca-status');
-    if (el) el.innerHTML='<span style="color:#2E7D32;">✓ Dados copiados. Agora abra o Nubank e gere o boleto.</span>';
-  }
-};
-
 window.emitirNFeFocus = async () => {
   const baseUrl = getFocusFnUrl();
   const aviso = document.getElementById('nf-focus-aviso');
@@ -4487,7 +4399,6 @@ window.emitirNFeFocus = async () => {
 
     // Status inicial costuma ser "processando_autorizacao"
     statusEl.innerHTML = '<span style="color:#185FA5;">⏳ Status: ' + (data.status || 'processando') + '. Clique em "Consultar status" em alguns segundos.</span>';
-    prepararCobrancaNubank();
     document.getElementById('btn-consultar-focus').style.display = 'inline-flex';
     document.getElementById('modal-emissao-nf').dataset.focusRef = ref;
 
@@ -4500,7 +4411,6 @@ window.emitirNFeFocus = async () => {
       const danfeLink = ' <a href="' + _focusDanfeUrl(ref) + '" target="_blank" style="color:#185FA5;font-weight:600;"><i class="ti ti-file-text"></i> Ver DANFE</a>';
       const xmlLink   = ' <a href="' + _focusXmlUrl(ref)   + '" target="_blank" style="color:#185FA5;font-weight:600;"><i class="ti ti-code"></i> Baixar XML</a>';
       statusEl.innerHTML = '<span style="color:#185FA5;">✅ NF-e autorizada! Número ' + data.numero + '.' + danfeLink + xmlLink + ' Clique em "Registrar NF no pedido" para salvar.</span>';
-      prepararCobrancaNubank();
     }
   } catch (err) {
     statusEl.innerHTML = '<span style="color:#C0392B;">❌ Falha de conexão com a Cloud Function: ' + String(err.message||err) + '</span>';
