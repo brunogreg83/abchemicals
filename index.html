@@ -691,7 +691,7 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
           <div id="nf-cobranca-dados" style="background:#f9f9f7;border-radius:8px;padding:10px;font-size:12px;line-height:1.7;margin-bottom:10px;"></div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <button class="btn-primary" onclick="copiarDadosCobrancaNubank()"><i class="ti ti-copy"></i> Copiar dados da cobrança</button>
-            <button class="btn-ghost" onclick="window.open('https://nubank.com.br/empresas/solucoes-para-cobranca','_blank')"><i class="ti ti-external-link"></i> Abrir Nubank</button>
+            <button class="btn-ghost" onclick="window.open('https://app.nubank.com.br/beta/','_blank')"><i class="ti ti-external-link"></i> Abrir Nubank</button>
           </div>
           <div id="nf-cobranca-status" style="font-size:12px;margin-top:8px;"></div>
         </div>
@@ -4356,7 +4356,15 @@ window.prepararCobrancaNubank = () => {
     .filter(v => v != null && String(v).trim())
     .join(' | ');
   const ehBoleto = /boleto|cobrança bancária/i.test(textoPagamento);
-  if (!ehBoleto) { box.style.display = 'none'; return; }
+  // Mantém o bloco visível na tela de emissão para que o usuário saiba como proceder.
+  // Se o pedido não for boleto, apenas informa a forma de pagamento configurada.
+  if (!ehBoleto) {
+    dados.innerHTML = '<b>Forma de pagamento:</b> ' + escHtml(textoPagamento || 'Não informada') + '<br><span style="color:#777;">Para preparar uma cobrança Nubank, selecione <b>Boleto bancário</b> como forma de pagamento no pedido.</span>';
+    box.style.display = 'block';
+    const st = document.getElementById('nf-cobranca-status');
+    if (st) st.textContent = '';
+    return;
+  }
 
   const nomePedNF = String(p.cliente || '').trim().toLowerCase();
   const cli = D.clientes.find(c => String(c.nome || '') === p.cliente)
