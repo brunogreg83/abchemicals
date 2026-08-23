@@ -685,7 +685,7 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
         <div id="nf-focus-status" style="font-size:12px;color:#666;margin-bottom:10px;"></div>
         <button class="btn-primary" id="btn-emitir-focus" onclick="emitirNFeFocus()"><i class="ti ti-send"></i> Emitir NF-e (Brasil NFe)</button>
         <button class="btn-ghost" id="btn-consultar-focus" onclick="consultarNFeFocus()" style="display:none;"><i class="ti ti-refresh"></i> Consultar status</button>
-        <div id="nf-cobranca-nubank" style="display:none;margin-top:14px;border-top:1px solid #e8e7e0;padding-top:14px;">
+        <div id="nf-cobranca-nubank" style="display:block !important;margin-top:14px;border-top:1px solid #e8e7e0;padding-top:14px;">
           <div class="section-title" style="margin-bottom:8px;"><i class="ti ti-file-invoice"></i> Cobrança — Nubank</div>
           <div style="font-size:12px;color:#666;margin-bottom:10px;">A cobrança é preparada pelo ERP. O boleto deve ser gerado manualmente no Nubank, pois não há API pública de emissão de boleto integrada ao ERP.</div>
           <div id="nf-cobranca-dados" style="background:#f9f9f7;border-radius:8px;padding:10px;font-size:12px;line-height:1.7;margin-bottom:10px;"></div>
@@ -4350,7 +4350,8 @@ window.prepararCobrancaNubank = () => {
   const box = document.getElementById('nf-cobranca-nubank');
   const dados = document.getElementById('nf-cobranca-dados');
   if (!box || !dados) return;
-  if (!p) { box.style.display = 'none'; return; }
+  if (!p) { box.style.setProperty('display','none','important'); return; }
+  box.style.setProperty('display','block','important');
 
   const textoPagamento = [p.forma, p.pgto, p.cond, p.condicao, p.pagamento]
     .filter(v => v != null && String(v).trim())
@@ -4360,7 +4361,7 @@ window.prepararCobrancaNubank = () => {
   // Se o pedido não for boleto, apenas informa a forma de pagamento configurada.
   if (!ehBoleto) {
     dados.innerHTML = '<b>Forma de pagamento:</b> ' + escHtml(textoPagamento || 'Não informada') + '<br><span style="color:#777;">Para preparar uma cobrança Nubank, selecione <b>Boleto bancário</b> como forma de pagamento no pedido.</span>';
-    box.style.display = 'block';
+    box.style.setProperty('display','block','important');
     const st = document.getElementById('nf-cobranca-status');
     if (st) st.textContent = '';
     return;
@@ -4388,7 +4389,7 @@ window.prepararCobrancaNubank = () => {
     '<b>Referência:</b> Pedido ' + escHtml(String(pedidoRef)) + '<br>' +
     '<span style="color:#777;">Emita o boleto no Nubank usando esses dados.</span>';
 
-  box.style.display = 'block';
+  box.style.setProperty('display','block','important');
 };
 
 window.copiarDadosCobrancaNubank = async () => {
