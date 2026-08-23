@@ -1348,6 +1348,7 @@ window.ocItens = []; // estado global dos itens da OC
 window.pitens  = []; // estado global dos itens do pedido
 
 // ── Máscaras de CNPJ, Telefone e CEP ─────────────────────────────────────
+function escHtml(v) { return String(v ?? '').replace(/[&<>\"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m])); }
 function maskCNPJ(v) {
   v = v.replace(/\D/g,'').slice(0,14);
   if (v.length <= 2)  return v;
@@ -4270,6 +4271,8 @@ window.abrirEmissaoNF = id => {
   document.getElementById('btn-consultar-focus').style.display = 'none';
 
   document.getElementById('modal-emissao-nf').classList.add('open');
+  // Preparar cobrança Nubank imediatamente ao abrir a tela de NF-e, sem depender da emissão.
+  prepararCobrancaNubank();
 };
 
 window.abrirPortalSEFAZ = () => {
@@ -4344,26 +4347,68 @@ function _focusXmlUrl(ref, cliente, numero) {
 
 window.prepararCobrancaNubank = () => {
   const p = D.pedidos.find(x => x.id === _pedidoNFId);
-  if (!p) return;
-  const nomePedNF = (p.cliente || '').trim().toLowerCase();
-  const cli = D.clientes.find(c => c.nome === p.cliente) || D.clientes.find(c => c.nome.trim().toLowerCase() === nomePedNF) || {};
-  const valor = totPed(p);
-  const forma = p.forma || '';
-  const cond = p.pgto || p.cond || 'A definir';
   const box = document.getElementById('nf-cobranca-nubank');
   const dados = document.getElementById('nf-cobranca-dados');
-  if (!box || !dados || !cli) return;
-  if (!/boleto/i.test(forma) && !/boleto/i.test(cond)) { box.style.display='none'; return; }
-  dados.innerHTML = '<b>Cliente:</b> '+(cli.nome||p.cliente)+'<br><b>CNPJ/CPF:</b> '+(cli.cnpj||cli.cpf||'—')+'<br><b>Valor:</b> '+R$(valor)+'<br><b>Condição:</b> '+cond+'<br><b>Pedido:</b> '+(p.id||'—');
-  box.style.display='block';
+  if (!box || !dados) return;
+  if (!p) { box.style.display = 'none'; return; }
+
+  const textoPagamento = [p.forma, p.pgto, p.cond, p.condicao, p.pagamento]
+    .filter(v => v != null && String(v).trim())
+    .join(' | ');
+  const ehBoleto = /boleto|cobrança bancária/i.test(textoPagamento);
+  if (!ehBoleto) { box.style.display = 'none'; return; }
+
+  const nomePedNF = String(p.cliente || '').trim().toLowerCase();
+  const cli = D.clientes.find(c => String(c.nome || '') === p.cliente)
+           || D.clientes.find(c => String(c.nome || '').trim().toLowerCase() === nomePedNF)
+           || D.clientes.find(c => {
+                const n = String(c.nome || '').trim().toLowerCase();
+                return n && (n.includes(nomePedNF) || nomePedNF.includes(n));
+              })
+           || {};
+
+  const valor = totPed(p);
+  const cond = p.pgto || p.cond || p.condicao || p.pagamento || 'A definir';
+  const cnpj = cli.cnpj || cli.cpf || '';
+  const pedidoRef = p.numero || p.id || '';
+
+  dados.innerHTML =
+    '<b>Cliente:</b> ' + escHtml(cli.nome || p.cliente || '—') + '<br>' +
+    '<b>CNPJ/CPF:</b> ' + escHtml(cnpj || '—') + '<br>' +
+    '<b>Valor:</b> ' + R$(valor) + '<br>' +
+    '<b>Condição:</b> ' + escHtml(cond) + '<br>' +
+    '<b>Referência:</b> Pedido ' + escHtml(String(pedidoRef)) + '<br>' +
+    '<span style="color:#777;">Emita o boleto no Nubank usando esses dados.</span>';
+
+  box.style.display = 'block';
 };
+
 window.copiarDadosCobrancaNubank = async () => {
   const p = D.pedidos.find(x => x.id === _pedidoNFId);
   if (!p) return;
-  const nomePedNF=(p.cliente||'').trim().toLowerCase();
-  const cli=D.clientes.find(c=>c.nome===p.cliente)||D.clientes.find(c=>c.nome.trim().toLowerCase()===nomePedNF)||{};
-  const txt='COBRANÇA AB CHEMICALS\nCliente: '+(cli.nome||p.cliente)+'\nCNPJ/CPF: '+(cli.cnpj||cli.cpf||'')+'\nValor: '+R$(totPed(p))+'\nCondição: '+(p.pgto||p.cond||'A definir')+'\nPedido: '+(p.id||'');
-  try { await navigator.clipboard.writeText(txt); document.getElementById('nf-cobranca-status').innerHTML='<span style="color:#2E7D32;">✓ Dados copiados. Cole no Nubank para emitir a cobrança.</span>'; } catch(e) { document.getElementById('nf-cobranca-status').innerHTML='<span style="color:#C0392B;">Não foi possível copiar automaticamente.</span>'; }
+  const nomePedNF = String(p.cliente || '').trim().toLowerCase();
+  const cli = D.clientes.find(c => String(c.nome || '') === p.cliente)
+           || D.clientes.find(c => String(c.nome || '').trim().toLowerCase() === nomePedNF)
+           || {};
+  const cond = p.pgto || p.cond || p.condicao || p.pagamento || 'A definir';
+  const txt = [
+    'COBRANÇA AB CHEMICALS',
+    'Cliente: ' + (cli.nome || p.cliente || ''),
+    'CNPJ/CPF: ' + (cli.cnpj || cli.cpf || ''),
+    'Valor: ' + R$(totPed(p)),
+    'Condição: ' + cond,
+    'Referência: Pedido ' + (p.numero || p.id || '')
+  ].join('\n');
+  try {
+    await navigator.clipboard.writeText(txt);
+    const el = document.getElementById('nf-cobranca-status');
+    if (el) el.innerHTML='<span style="color:#2E7D32;">✓ Dados copiados. Agora abra o Nubank e gere o boleto.</span>';
+  } catch(e) {
+    const ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    const el = document.getElementById('nf-cobranca-status');
+    if (el) el.innerHTML='<span style="color:#2E7D32;">✓ Dados copiados. Agora abra o Nubank e gere o boleto.</span>';
+  }
 };
 
 window.emitirNFeFocus = async () => {
