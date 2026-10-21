@@ -59,6 +59,8 @@
       transition:background .2s,transform .15s;
     }
     .nav-cta:hover{background:var(--blue-light);transform:translateY(-1px)}
+    .nav-section-select{appearance:none;-webkit-appearance:none;max-width:210px;padding-right:34px;background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);background-position:calc(100% - 17px) 50%,calc(100% - 12px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+    .nav-section-select option{background:#fff;color:var(--text)}
 
     /* HERO */
     #hero{
@@ -554,7 +556,13 @@
 </ul>
 
 
-  <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Orçamento</button>
+  <select class="nav-cta nav-section-select" aria-label="Navegar pelas seções da página" onchange="if(this.value){document.getElementById(this.value)?.scrollIntoView({behavior:'smooth'});this.selectedIndex=0}">
+    <option value="" selected disabled>Seções da página ▾</option>
+    <option value="hero">Home</option>
+    <option value="produtos">Portfólio Completo</option>
+    <option value="features">Diferenciais</option>
+    <option value="industrias">Parceiros</option>
+  </select>
 </nav>
 
 <!-- MOBILE BOTTOM TAB BAR -->
