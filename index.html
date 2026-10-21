@@ -795,6 +795,34 @@
 }
 </style>
 
+<style>
+/* Cornélio: remove altura fixa e qualquer recorte herdado no bloco da logo */
+#industrias .reveal:has(img[alt="Cornélio Química"]) > div:first-child {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 10px !important;
+  display: block !important;
+  line-height: normal !important;
+}
+#industrias .reveal:has(img[alt="Cornélio Química"]) > div:first-child img[alt="Cornélio Química"] {
+  display: block !important;
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  max-width: 220px !important;
+  aspect-ratio: auto !important;
+  object-fit: unset !important;
+  object-position: initial !important;
+  clip-path: none !important;
+  transform: none !important;
+  margin: 0 auto !important;
+}
+</style>
+
 </head>
 <body>
 
