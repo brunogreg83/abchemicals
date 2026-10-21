@@ -766,6 +766,35 @@
 }
 </style>
 
+<style>
+/* Cornélio Química: elimina altura fixa/corte herdado em qualquer breakpoint */
+#industrias .reveal:has(img[alt="Cornélio Química"]) > div:first-child {
+  display: flex !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px !important;
+  line-height: 0 !important;
+}
+#industrias .reveal:has(img[alt="Cornélio Química"]) img[alt="Cornélio Química"] {
+  display: block !important;
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  max-width: 220px !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+  flex: none !important;
+}
+</style>
+
 </head>
 <body>
 
