@@ -937,12 +937,14 @@
 </ul>
 
 
-  <select class="nav-cta nav-section-select" aria-label="Navegar pelas seções da página" onchange="if(this.value){document.getElementById(this.value)?.scrollIntoView({behavior:'smooth'});this.selectedIndex=0}">
+  <select class="nav-cta nav-section-select" aria-label="Navegar pelas seções da página" onchange="if(this.value){if(this.value.startsWith('http')){window.open(this.value,'_blank','noopener,noreferrer')}else{document.getElementById(this.value)?.scrollIntoView({behavior:'smooth'})}this.selectedIndex=0}">
     <option value="" selected disabled>Seções da página ▾</option>
     <option value="hero">Home</option>
     <option value="produtos">Portfólio Completo</option>
     <option value="features">Diferenciais</option>
     <option value="industrias">Parceiros</option>
+    <option value="https://www.syntherabr.com.br/calculadora.html">Calculadora ↗</option>
+    <option value="https://alfaengenhariaquimica.com.br/">Consultoria ↗</option>
   </select>
   <div class="nav-external-buttons">
     <a href="https://www.syntherabr.com.br/calculadora.html" target="_blank" rel="noopener noreferrer">Calculadora</a>
