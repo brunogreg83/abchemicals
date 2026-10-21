@@ -681,6 +681,57 @@
 }
 </style>
 
+
+<style>
+/* Layout compacto exclusivo da seção Parceiros */
+@media (max-width: 900px) {
+  #industrias {
+    padding: 36px 18px 0 !important;
+  }
+  #industrias > div[style*="display:flex"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+  #industrias > div[style*="display:flex"] > .reveal {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 16px 12px !important;
+    border-radius: 12px !important;
+  }
+  #industrias > div[style*="display:flex"] > .reveal > div:first-child {
+    padding: 8px 10px !important;
+    min-height: 58px !important;
+    margin-bottom: 10px !important;
+    box-sizing: border-box !important;
+  }
+  #industrias > div[style*="display:flex"] > .reveal img {
+    max-height: 48px !important;
+    max-width: 100% !important;
+  }
+  #industrias > div[style*="display:flex"] > .reveal h3 {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+    overflow-wrap: anywhere !important;
+  }
+  #industrias > div[style*="display:flex"] > .reveal p {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+  #industrias > div[style*="display:flex"] > .reveal span {
+    font-size: 9px !important;
+    letter-spacing: .2px !important;
+    padding: 3px 6px !important;
+  }
+  #industrias > div[style*="display:flex"] + div {
+    height: 24px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
