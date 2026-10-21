@@ -823,6 +823,39 @@
 }
 </style>
 
+<style>
+/* Fix definitivo da logo Cornélio: a imagem usa a largura natural do card, sem janela de recorte */
+#industrias .reveal:has(img[alt="Cornélio Química"]) > div:first-child {
+  display: flex !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 10px !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: normal !important;
+}
+#industrias .reveal:has(img[alt="Cornélio Química"]) img[alt="Cornélio Química"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  position: static !important;
+  flex: 0 1 auto !important;
+}
+</style>
+
 </head>
 <body>
 
