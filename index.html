@@ -11,12 +11,12 @@
       --blue:#1a4fa0;
       --blue-light:#2b7fff;
       --blue-dark:#0e3070;
-      --blue-pale:#eef4ff;
+      --blue-pale:#dce9ff;
       --sky:#3b9eff;
-      --sky-light:#e6f2ff;
-      --white:#ffffff;
-      --off-white:#f7faff;
-      --gray:#d1dce8;
+      --sky-light:#d6e8ff;
+      --white:#f2f6ff;
+      --off-white:#eaf2ff;
+      --gray:#c3d3eb;
       --text:#0e1a2e;
       --text-muted:#5a7190;
       --shadow-b:rgba(26,79,160,.12);
@@ -42,7 +42,7 @@
       position:fixed;top:0;left:0;right:0;z-index:100;
       display:flex;align-items:center;justify-content:space-between;
       padding:12px 60px;
-      background:rgba(255,255,255,.93);
+      background:rgba(232,241,255,.96);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(26,79,160,.12);
       box-shadow:0 2px 20px rgba(26,79,160,.07);
@@ -186,7 +186,7 @@
     .section-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;margin-bottom:12px;color:var(--text)}
 
     /* FEATURES */
-    #features{padding:90px 60px;background:var(--white);position:relative;z-index:1}
+    #features{padding:90px 60px;background:#edf4ff;position:relative;z-index:1}
     .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
     .feature-card{
       background:var(--off-white);padding:34px 26px;border-radius:20px;
@@ -294,7 +294,7 @@
     /* CONTATO */
     #contato{
       padding:90px 60px;
-      background:linear-gradient(135deg,var(--blue-pale),var(--sky-light));
+      background:linear-gradient(135deg,#d5e5ff,#c4ddff);
       display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
     }
     .contact-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;margin-bottom:16px;color:var(--text)}
@@ -1112,4 +1112,15 @@ max-height:67px;
   from{transform:translateX(0);}
   to{transform:translateX(calc(-50% - 2px));}
 }
+</style>
+
+
+<style>
+/* Paleta revisada: menos branco e mais presença de azul, sem alterar estrutura ou conteúdo. */
+body{background:#edf4ff}
+#hero{background:linear-gradient(135deg,#f0f5ff 0%,#e2edff 100%)}
+#features{background:#edf4ff!important}
+.category-card,.feature-card,.testimonial-card,.form-box{background-color:#eaf2ff}
+.product-card{background:#f0f5ff}
+nav{background:rgba(232,241,255,.96)}
 </style>
