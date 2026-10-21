@@ -640,6 +640,47 @@
 }
 </style>
 
+
+<style>
+/* Diferenciais: duas colunas no mobile, com textos maiores e legíveis */
+@media (max-width: 600px) {
+  #features {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  #features .features-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  #features .feature-card {
+    min-width: 0 !important;
+    padding: 16px 12px !important;
+    border-radius: 12px !important;
+  }
+  #features .feature-icon {
+    width: 36px !important;
+    height: 36px !important;
+    margin-bottom: 8px !important;
+  }
+  #features .feature-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  #features .feature-title {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 5px !important;
+    overflow-wrap: anywhere !important;
+  }
+  #features .feature-desc {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
