@@ -195,24 +195,26 @@
     .section-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;margin-bottom:12px;color:var(--text)}
 
     /* FEATURES */
-    #features{padding:90px 60px;background:#f4f6f8;position:relative;z-index:1}
-    .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    #features{padding:48px 60px;background:#f4f6f8;position:relative;z-index:1}
+    .features-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
     .feature-card{
-      background:var(--off-white);padding:34px 26px;border-radius:20px;
+      background:var(--off-white);padding:20px 18px;border-radius:14px;
       border:1.5px solid transparent;
       transition:border-color .3s,box-shadow .3s,transform .25s;
     }
     .feature-card:hover{border-color:var(--blue-light);box-shadow:0 8px 32px rgba(26,79,160,.12);transform:translateY(-4px)}
     .feature-icon{
-      width:52px;height:52px;background:var(--blue-pale);border-radius:14px;
-      display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+      width:40px;height:40px;background:var(--blue-pale);border-radius:11px;
+      display:flex;align-items:center;justify-content:center;margin-bottom:10px;
       transition:background .3s;
     }
     .feature-card:hover .feature-icon{background:var(--blue)}
     .feature-icon svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:2;transition:stroke .3s}
     .feature-card:hover .feature-icon svg{stroke:#fff}
-    .feature-title{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
-    .feature-desc{font-size:.87rem;color:var(--text-muted);line-height:1.7}
+    #features .feature-title{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:6px;color:var(--text)}
+    #features .feature-desc{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+    @media(max-width:900px){#features{padding:42px 28px}.features-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+    @media(max-width:600px){#features{padding:34px 18px}.features-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#features .feature-card{padding:16px 13px}#features .feature-title{font-size:.82rem}#features .feature-desc{font-size:.75rem}}
 
     /* PRODUCTS */
     #produtos{padding:90px 60px;position:relative;z-index:1;background:linear-gradient(180deg,var(--sky-light),var(--blue-pale))}
@@ -873,29 +875,29 @@ max-height:67px;
 <section id="features">
   <div style="text-align:center">
     <p class="section-label reveal" style="justify-content:center">Por que escolher a AB Chemicals</p>
-    <h2 class="section-title reveal" style="text-align:center">A parceria certa<br>para seu negócio</h2>
-    <p class="reveal" style="font-size:1rem;color:var(--text-muted);max-width:480px;margin:0 auto 52px;line-height:1.7">Qualidade e confiança para empresas que valorizam a higiene e a satisfação de seus clientes.</p>
+    <h2 class="section-title reveal" style="text-align:center">A parceria certa para seu negócio</h2>
+    <p class="reveal" style="font-size:.9rem;color:var(--text-muted);max-width:480px;margin:0 auto 26px;line-height:1.5">Qualidade, confiança e eficiência para sua operação.</p>
   </div>
   <div class="features-grid">
     <div class="feature-card reveal">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
       <div class="feature-title">Produtos Certificados</div>
-      <div class="feature-desc">Produtos certificados para limpeza profissional em geral — indústria, comércio, hotelaria e saúde. Alto desempenho e excelente rendimento em cada aplicação.</div>
+      <div class="feature-desc">Qualidade profissional para indústria, comércio, hotelaria e saúde.</div>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
       <div class="feature-title">Alta Concentração</div>
-      <div class="feature-desc">Produtos de alta performance com fórmulas concentradas que reduzem o consumo por aplicação, aumentando o custo-benefício da sua operação.</div>
+      <div class="feature-desc">Menor consumo por aplicação e melhor custo-benefício.</div>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
       <div class="feature-title">Suporte Técnico</div>
-      <div class="feature-desc">Equipe especializada para orientação de uso, dosagens ideais e treinamento de equipes. Suporte dedicado do pedido à aplicação.</div>
+      <div class="feature-desc">Orientação de uso, dosagens e treinamento de equipes.</div>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
       <div class="feature-title">Entrega Ágil</div>
-      <div class="feature-desc">Estoque robusto e logística eficiente com entrega rápida, garantindo que sua operação nunca pare.</div>
+      <div class="feature-desc">Logística eficiente para manter sua operação abastecida.</div>
     </div>
   </div>
 </section>
