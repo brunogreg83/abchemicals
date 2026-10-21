@@ -604,6 +604,42 @@
 }
 </style>
 
+
+<style>
+/* Portfólio Completo: aplicar duas colunas ao grid real de categorias no mobile */
+@media (max-width: 600px) {
+  #produtos > div[style*="grid-template-columns:repeat(auto-fit"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  #produtos .category-card {
+    min-width: 0 !important;
+    padding: 16px 10px !important;
+    border-radius: 12px !important;
+  }
+  #produtos .category-icon-wrap {
+    width: 42px !important;
+    height: 42px !important;
+    margin-bottom: 8px !important;
+  }
+  #produtos .category-title {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    overflow-wrap: anywhere !important;
+  }
+  #produtos .category-sub {
+    font-size: 10.5px !important;
+    line-height: 1.3 !important;
+  }
+  #produtos .products-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
