@@ -747,6 +747,25 @@
 }
 </style>
 
+<style>
+/* Correção de especificidade: sobrescreve a regra mobile genérica que limita logos a 48px */
+#industrias > div[style*="display:flex"] > .reveal img[alt="Cornélio Química"] {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 220px !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  flex: 0 0 auto !important;
+}
+#industrias > div[style*="display:flex"] > .reveal:has(img[alt="Cornélio Química"]) > div:first-child {
+  height: auto !important;
+  min-height: 70px !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+</style>
+
 </head>
 <body>
 
