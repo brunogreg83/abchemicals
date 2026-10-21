@@ -520,6 +520,42 @@
 </style>
 </style>
 </style>
+
+<style>
+/* Correção definitiva: quatro cards de Diferenciais lado a lado também no mobile */
+@media (max-width: 900px) {
+  #features .features-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+  #features .feature-card {
+    min-width: 0 !important;
+    padding: 10px 5px !important;
+  }
+}
+@media (max-width: 600px) {
+  #features {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  #features .features-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+  #features .feature-title {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    overflow-wrap: anywhere !important;
+  }
+  #features .feature-desc {
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
