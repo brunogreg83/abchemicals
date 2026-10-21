@@ -732,6 +732,21 @@
 }
 </style>
 
+<style>
+/* Corrige especificamente a logo Cornélio: impede que a regra mobile limite sua altura e a corte */
+#industrias img[alt="Cornélio Química"] {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 220px !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+#industrias img[alt="Cornélio Química"] {
+  flex: 0 1 auto !important;
+}
+</style>
+
 </head>
 <body>
 
